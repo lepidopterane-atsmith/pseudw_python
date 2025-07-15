@@ -116,7 +116,7 @@ def main():
          
     # Execute query
     if search_button and query:
-        if st.session_state.query_engine is None:
+        if 'query_engine' not in st.session_state or st.session_state.query_engine is None:
             st.error("No data loaded. Please load Perseus Treebank XML data first.")
             return
         
