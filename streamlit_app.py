@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from typing import List
+import os
 
 # Import the query engine (assuming it's in a file called greek_query_engine.py)
 from engine import create_query_engine
@@ -43,7 +44,25 @@ def create_query_examples():
         "Genitive absolutes": ":genitive[relation=SBJ]",
         "Indicative verbs with accusative objects": ":verb:indicative:root > :accusative[relation=OBJ]"
     }
-
+    
+def get_files(urns: List[str]):
+    this_dir = os.path.dirname(__file__)
+    
+    for urn in urns:
+        doc_path = os.path.join(this_dir, "data", "xml", f"{urn}.xml")
+        try:
+            with open(doc_path, 'rb') as doc:
+                xml_content = doc.read().decode('utf-8')
+        except: 
+            st.error("Error opening selected documents.")
+            return False
+        
+        with st.spinner("Loading XML data..."):
+            st.session_state.query_engine = create_query_engine(xml_content)
+            st.success("XML data loaded successfully!")
+            st.info("Ready to execute queries.")
+    return True
+        
 def main():
     st.set_page_config(
         page_title="Greek Text Query Engine",
@@ -106,13 +125,6 @@ def main():
     
     with col2:
         search_button = st.button("🔍 Search", type="primary")
-
-    # should_execute = False
-    # if search_button and query:
-    #     should_execute = True
-    #elif query and 'last_query' in st.session_state and st.session_state.last_query != query:
-        # Auto-execute when query changes (optional)
-        #should_execute = True   
          
     # Execute query
     if search_button and query:
@@ -173,7 +185,28 @@ def main():
     # Data upload section
     st.markdown("---")
     st.header("Data Management")
-    st.markdown("Please provide XML data below. As of right now, files must be uploaded.")
+
+    df = pd.read_csv("matched_urns.csv")
+    df["display_label"] = df.apply(lambda row: f"{row['URN']} {row['Author']}, {row['Title']}", axis=1)
+    selected_labels = st.multiselect("Select document(s):", df["display_label"].tolist())
+
+    # Filter the original DataFrame based on the selected labels
+    selected_rows = df[df["display_label"].isin(selected_labels)]
+
+    # Show the selected data (you can do whatever you want with this)
+    st.write("Current selection:")
+    st.dataframe(selected_rows)
+    
+    confirmed_selection = st.button("Confirm Selection")
+    
+    if confirmed_selection:
+        #try:
+        urns = [urn for urn in df["URN"]]
+        get_files(urns)
+        #except:
+        st.error("Error fetching selected files.")
+
+    st.markdown("Alternatively, you can upload your own XML data below.")
     
     uploaded_file = st.file_uploader(
         "Upload Perseus Treebank XML file",
@@ -186,7 +219,7 @@ def main():
             xml_content = uploaded_file.read().decode('utf-8')
             with st.spinner("Processing XML data..."):
                 st.session_state.query_engine = create_query_engine(xml_content)
-                st.success("XML data loaded successfully!")
+                st.success("XML data uploaded successfully!")
                 st.info("Ready to execute queries.")
         except Exception as e:
             st.error(f"Error loading XML file: {str(e)}")

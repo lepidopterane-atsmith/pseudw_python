@@ -40,6 +40,7 @@ class Word:
     case: Optional[str] = None
     degree: Optional[str] = None
     children: List['Word'] = None
+    doc_urn: Optional[str] = None
     
     def __post_init__(self):
         if self.children is None:
@@ -111,6 +112,7 @@ class GreekTextParser:
                 form = word_node.get('form', '')
                 relation = word_node.get('relation', '')
                 postag = word_node.get('postag', '')
+                #urn=
                 
                 # Parse linguistic features
                 features = self.parse_postag(postag)

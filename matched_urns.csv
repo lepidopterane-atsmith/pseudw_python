@@ -1,0 +1,924 @@
+Author,Title,URN
+Apollonius Rhodius,Argonautica,0001-001
+ERROR,ERROR,0002-004
+Thucydides,History of the Peloponnesian War,0003-001
+Thucydides,ERROR,0003-002
+Theocritus,Εἰδύλλια,0005-001
+Theocritus,Ἐπιγράμματα,0005-002
+Theocritus,ERROR,0005-005
+Euripides,Hecuba,0006-007
+Euripides,The Suppliant Maidens,0006-008
+Euripides,Heracles,0006-009
+Euripides,Ion,0006-010
+Euripides,The Trojan Women,0006-011
+Euripides,Electra,0006-012
+Euripides,Iphigenia in Tauris,0006-013
+Euripides,Helen,0006-014
+Euripides,The Phoenician Women,0006-015
+Euripides,Orestes,0006-016
+Euripides,Bacchae,0006-017
+Euripides,Iphigenia in Aulis,0006-018
+Euripides,Rhesus,0006-019
+Euripides,ERROR,0006-031
+Plutarch,Theseus,0007-001
+Plutarch,Romulus,0007-002
+Plutarch,Comparison of Theseus and Romulus,0007-003
+Plutarch,Lycurgus,0007-004
+Plutarch,Numa,0007-005
+Plutarch,Comparison of Lycurgus and Numa,0007-006
+Plutarch,Solon,0007-007
+Plutarch,Publicola,0007-008
+Plutarch,Comparison of Solon and Publicola,0007-009
+Plutarch,Themistocles,0007-010
+Plutarch,Camillus,0007-011
+Plutarch,Pericles,0007-012
+Plutarch,Fabius Maximus,0007-013
+Plutarch,Comparison of Pericles and Fabius Maximus,0007-014
+Plutarch,Alcibiades,0007-015
+Plutarch,Caius Marcius Coriolanus,0007-016
+Plutarch,Comparison of Alcibiades and Coriolanus,0007-017
+Plutarch,Timoleon,0007-018
+Plutarch,Aemilius Paulus,0007-019
+Plutarch,Comparison of Timoleon and Aemilius,0007-020
+Plutarch,Pelopidas,0007-021
+Plutarch,Marcellus,0007-022
+Plutarch,Comparison of Pelopidas and Marcellus,0007-023
+Plutarch,Aristides,0007-024
+Plutarch,Marcus Cato,0007-025
+Plutarch,Comparison of Aristides and Marcus Cato,0007-026
+Plutarch,Philopoemen,0007-027
+Plutarch,Titus Flamininus,0007-028
+Plutarch,Comparison of Philopoemen and Titus,0007-029
+Plutarch,Pyrrhus,0007-030
+Plutarch,Caius Marius,0007-031
+Plutarch,Lysander,0007-032
+Plutarch,Sulla,0007-033
+Plutarch,Comparison of Lysander and Sulla,0007-034
+Plutarch,Cimon,0007-035
+Plutarch,Lucullus,0007-036
+Plutarch,Comparison of Lucullus and Cimon,0007-037
+Plutarch,Nicias,0007-038
+Plutarch,Crassus,0007-039
+Plutarch,Comparison of Nicias and Crassus,0007-040
+Plutarch,Eumenes,0007-041
+Plutarch,Sertorius,0007-042
+Plutarch,Comparison of Sertorius and Eumenes,0007-043
+Plutarch,Agesilaus,0007-044
+Plutarch,Pompey,0007-045
+Plutarch,Comparison of Agesilaus and Pompey,0007-046
+Plutarch,Alexander,0007-047
+Plutarch,Caesar,0007-048
+Plutarch,Phocion,0007-049
+Plutarch,Cato the Younger,0007-050
+Plutarch,Comparison of Agis and Cleomenes and the Gracchi,0007-053
+Plutarch,Demosthenes,0007-054
+Plutarch,Cicero,0007-055
+Plutarch,Comparison of Demosthenes and Cicero,0007-056
+Plutarch,Demetrius,0007-057
+Plutarch,Antony,0007-058
+Plutarch,Comparison of Demetrius and Antony,0007-059
+Plutarch,Dion,0007-060
+Plutarch,Brutus,0007-061
+Plutarch,Comparison of Dion and Brutus,0007-062
+Plutarch,Aratus,0007-063
+Plutarch,Artaxerxes,0007-064
+Plutarch,Galba,0007-065
+Plutarch,Otho,0007-066
+Plutarch,De capienda ex inimicis utilitate,0007-072
+Plutarch,De amicorum multitudine,0007-073
+Plutarch,De fortuna,0007-074
+Plutarch,De virtute et vitio,0007-075
+Plutarch,Regum et imperatorum apophthegmata,0007-081
+Plutarch,Lacaenarum Apophthegmata,0007-082
+Plutarch,Mulierum virtutes,0007-083
+Plutarch,Parallela minora,0007-085
+Plutarch,De gloria Atheniensium,0007-088
+Athenaeus of Naucratis,Deipnosophistae,0008-001
+ERROR,ERROR,0009-002
+Isocrates,Against Euthynus,0010-001
+Isocrates,Against Callimachus,0010-002
+Isocrates,Against Lochites,0010-003
+Isocrates,Concerning the Team of Horses,0010-004
+Isocrates,Trapeziticus,0010-005
+Isocrates,Aegineticus,0010-006
+Isocrates,To Demonicus,0010-007
+Isocrates,Against the Sophists,0010-008
+Isocrates,Helen,0010-009
+Isocrates,Busiris,0010-010
+Isocrates,Panegyricus,0010-011
+Isocrates,Plataicus,0010-012
+Isocrates,To Nicocles,0010-013
+Isocrates,Nicocles or the Cyprians,0010-014
+Isocrates,Evagoras,0010-015
+Isocrates,Archidamus,0010-016
+Isocrates,On the Peace,0010-017
+Isocrates,Areopagiticus,0010-018
+Isocrates,Antidosis,0010-019
+Isocrates,To Philip,0010-020
+Isocrates,Panathenaicus,0010-021
+Isocrates,To Dionysius,0010-022
+Isocrates,To the Children of Jason,0010-023
+Isocrates,To Archidamus,0010-024
+Isocrates,To the Rulers of the Mytilenaeans,0010-025
+Isocrates,To Timotheus,0010-026
+Isocrates,"To Philip, I",0010-027
+Isocrates,To Alexander,0010-028
+Isocrates,To Antipater,0010-029
+Isocrates,"To Philip, II",0010-030
+Sophocles,Trachiniae,0011-001
+Sophocles,Antigone,0011-002
+Sophocles,Ajax,0011-003
+Sophocles,Oedipus Tyrannus,0011-004
+Sophocles,Electra,0011-005
+Sophocles,Philoctetes,0011-006
+Sophocles,Oedipus at Colonus,0011-007
+Sophocles,Ichneutae,0011-008
+Homer,Iliad,0012-001
+Homer,Odyssey,0012-002
+Homer,Epigrams,0012-003
+Homeric Hymns,Hymn 1 to Dionysus,0013-001
+Homeric Hymns,Hymn 2 to Demeter,0013-002
+Homeric Hymns,Hymn 3 to Delian and Pythian Apollo,0013-003
+Homeric Hymns,Hymn 4 to Hermes,0013-004
+Homeric Hymns,Hymn 5 to Aphrodite,0013-005
+Homeric Hymns,Hymn 6 to Aphrodite,0013-006
+Homeric Hymns,Hymn 7 to Dionysus,0013-007
+Homeric Hymns,Hymn 9 to Artemis,0013-009
+Homeric Hymns,Hymn 10 to Aphrodite,0013-010
+Homeric Hymns,Hymn 11 To Athena,0013-011
+Homeric Hymns,Hymn 12 to Hera,0013-012
+Homeric Hymns,Hymn 13 to Demeter,0013-013
+Homeric Hymns,Hymn 14 to the Mother of the Gods,0013-014
+Homeric Hymns,Hymn 15 To Heracles,0013-015
+Homeric Hymns,Hymn 16 To Asclepius,0013-016
+Homeric Hymns,Hymn 17 To the Dioscuri,0013-017
+Homeric Hymns,Hymn 18 to Hermes,0013-018
+Homeric Hymns,Hymn 19 to Pan,0013-019
+Homeric Hymns,Hymn 20 To Hephaestus,0013-020
+Homeric Hymns,Hymn 21 To Apollo,0013-021
+Homeric Hymns,Hymn 22 To Poseidon,0013-022
+Homeric Hymns,Hymn 23 to Zeus,0013-023
+Homeric Hymns,Hymn 24 To Hestia,0013-024
+Homeric Hymns,Hymn 25 To the Muses and Apollo,0013-025
+Homeric Hymns,Hymn 26 To Dionysus,0013-026
+Homeric Hymns,Hymn 27 to Artemis,0013-027
+Homeric Hymns,Hymn 28 to Athena,0013-028
+Homeric Hymns,Hymn 29 to Hestia,0013-029
+Homeric Hymns,Hymn 30 to Earth,0013-030
+Homeric Hymns,Hymn 31 to Helios,0013-031
+Homeric Hymns,Hymn 32 To Selene,0013-032
+Homeric Hymns,Hymn 33 To the Dioscuri,0013-033
+Demosthenes,Olynthiac 1,0014-001
+Demosthenes,Second Olynthiac,0014-002
+Demosthenes,Olynthiac 3,0014-003
+Demosthenes,Philippic 1,0014-004
+Demosthenes,On the Peace,0014-005
+Demosthenes,Second Philippic,0014-006
+Demosthenes,On Halonnesus,0014-007
+Demosthenes,On the Chersonese,0014-008
+Demosthenes,Third Philippic,0014-009
+Demosthenes,Philippic 4,0014-010
+Demosthenes,Answer to Philip’s Letter,0014-011
+Demosthenes,Philip’s Letter,0014-012
+Demosthenes,On Organization,0014-013
+Demosthenes,On the Navy-Boards,0014-014
+Demosthenes,For the Liberty of the Rhodians,0014-015
+Demosthenes,For the People of Megalopolis,0014-016
+Demosthenes,On the Treaty with Alexander,0014-017
+Demosthenes,On the Crown,0014-018
+Demosthenes,On the False Embassy,0014-019
+Demosthenes,Against Leptines,0014-020
+Demosthenes,Against Meidias,0014-021
+Demosthenes,Against Androtion,0014-022
+Demosthenes,Against Aristocrates,0014-023
+Demosthenes,Against Timocrates,0014-024
+Demosthenes,Against Aristogeiton I,0014-025
+Demosthenes,Against Aristogeiton II,0014-026
+Demosthenes,Against Aphobus I,0014-027
+Demosthenes,Against Aphobus II,0014-028
+Demosthenes,Against Aphobus III,0014-029
+Demosthenes,Against Onetor I,0014-030
+Demosthenes,Against Onetor II,0014-031
+Demosthenes,Against Zenothemis,0014-032
+Demosthenes,Against Apaturius,0014-033
+Demosthenes,Against Phormio,0014-034
+Demosthenes,Against Lacritus,0014-035
+Demosthenes,For Phormio,0014-036
+Demosthenes,Against Pantaenetus,0014-037
+Demosthenes,Against Nausimachus and Xenopeithes,0014-038
+Demosthenes,Against Boeotus I,0014-039
+Demosthenes,Against Boeotus II,0014-040
+Demosthenes,Against Spudias,0014-041
+Demosthenes,Against Phaenippus,0014-042
+Demosthenes,Against Macartatus,0014-043
+Demosthenes,Against Leochares,0014-044
+Demosthenes,Against Stephanus I,0014-045
+Demosthenes,Against Stephanus II,0014-046
+Demosthenes,Against Evergus and Mnesibulus,0014-047
+Demosthenes,Against Olympiodorus,0014-048
+Demosthenes,Apollodorus Against Timotheus,0014-049
+Demosthenes,Apollodorus Against Polycles,0014-050
+Demosthenes,On the Trierarchic Crown,0014-051
+Demosthenes,Apollodorus Against Callippus,0014-052
+Demosthenes,Apollodorus Against Nicostratus,0014-053
+Demosthenes,Against Conon,0014-054
+Demosthenes,Against Callicles,0014-055
+Demosthenes,Against Dionysodorus,0014-056
+Demosthenes,Against Eubulides,0014-057
+Demosthenes,Against Theocrines,0014-058
+Demosthenes,Theomnestus and Apollodorus Against Neaera,0014-059
+Demosthenes,The Funeral Speech,0014-060
+Demosthenes,The Erotic Essay,0014-061
+Herodian,Ab excessu divi Marci,0015-001
+Herodotus,Histories,0016-001
+Isaeus,On The Estate of Cleonymus,0017-001
+Isaeus,On the Estate of Menecles,0017-002
+Isaeus,On The Estate Of Pyrrhus,0017-003
+Isaeus,On the Estate of Nicostratus,0017-004
+Isaeus,On the Estate of Dicaeogenes,0017-005
+Isaeus,On the Estate of Philoctemon,0017-006
+Isaeus,On The Estate of Apollodorus,0017-007
+Isaeus,On The Estate of Ciron,0017-008
+Isaeus,On the Estate of Astyphilus,0017-009
+Isaeus,On The Estate of Aristarchus,0017-010
+Isaeus,On the Estate of Hagnias,0017-011
+Isaeus,On Behalf of Euphiletus,0017-012
+Aristophanes,Acharnians,0019-001
+Aristophanes,Knights,0019-002
+Aristophanes,Clouds,0019-003
+Aristophanes,Wasps,0019-004
+Aristophanes,Peace,0019-005
+Aristophanes,Birds,0019-006
+Aristophanes,Lysistrata,0019-007
+Aristophanes,Thesmophoriazusae,0019-008
+Aristophanes,Frogs,0019-009
+Aristophanes,Ecclesiazusae,0019-010
+Aristophanes,Wealth,0019-011
+Hesiod,Theogony,0020-001
+Hesiod,Works and Days,0020-002
+Hesiod,Shield of Heracles,0020-003
+ERROR,ERROR,0022-006
+Oppian,Halieutica,0023-001
+Oppian of Apamea,Cynegetica,0024-001
+Aeschines,Against Timarchus,0026-001
+Aeschines,On the Embassy,0026-002
+Aeschines,Against Ctesiphon,0026-003
+Andocides,On the Mysteries,0027-001
+Andocides,On His Return,0027-002
+Andocides,On the Peace with Sparta,0027-003
+Andocides,Against Alcibiades,0027-004
+Antiphon,Against the Stepmother for Poisoning,0028-001
+Antiphon,The First Tetralogy,0028-002
+Antiphon,The Second Tetralogy,0028-003
+Antiphon,The Third Tetralogy,0028-004
+Antiphon,On the murder of Herodes,0028-005
+Antiphon,On the Choreutes,0028-006
+Dinarchus,Against Demosthenes,0029-004
+Dinarchus,Against Aristogiton,0029-005
+Dinarchus,Against Philocles,0029-006
+Hyperides,In Defence of Lycophron,0030-001
+Hyperides,Against Philippides,0030-002
+Hyperides,Against Athenogenes,0030-003
+Hyperides,In Defence of Euxenippus,0030-004
+Hyperides,Against Demosthenes,0030-005
+Hyperides,Funeral Oration,0030-006
+Xenophon,Hellenica,0032-001
+Xenophon,Memorabilia,0032-002
+Xenophon,Economics,0032-003
+Xenophon,Symposium,0032-004
+Xenophon,Apology,0032-005
+Xenophon,Anabasis,0032-006
+Xenophon,Cyropaedia,0032-007
+Xenophon,Hiero,0032-008
+Xenophon,Agesilaus,0032-009
+Xenophon,Constitution of the Lacedaimonians,0032-010
+Xenophon,Ways and Means,0032-011
+Xenophon,On the Cavalry Commander,0032-012
+Xenophon,On the Art of Horsemanship,0032-013
+Xenophon,On Hunting,0032-014
+Pindar,Olympian,0033-001
+Pindar,Pythian,0033-002
+Pindar,Nemean,0033-003
+Pindar,Isthmean,0033-004
+Lycurgus,Against Leocrates,0034-001
+Moschus,Eros Drapeta,0035-001
+Moschus,Europa,0035-002
+Moschus,Epitaphius Bios,0035-003
+Moschus,Megara,0035-004
+Moschus,Fragmenta,0035-005
+Moschus,ERROR,0035-006
+Bion of Phlossa,Epitaphius Adonis,0036-001
+Bion of Phlossa,Epithalamium Achillis et Deidameiae,0036-002
+Bion of Phlossa,Fragmenta,0036-003
+Galen,Adhortatio ad artes addiscendas,0057-001
+Galen,De optima doctrina,0057-002
+Galen,Quod optimus medicus sit quoque philosophus,0057-003
+Galen,De sectis ad eos qui introducuntur,0057-004
+Galen,De constitutione artis medicae ad Patrophilum,0057-006
+Galen,Ars Medica,0057-007
+Galen,De elementis ex Hippocrate,0057-008
+Galen,De temperamentis,0057-009
+Galen,De naturalibus facultatibus,0057-010
+Galen,De anatomicis administrationibus,0057-011
+Galen,De ossibus ad tirones,0057-012
+Galen,De venarum arteriarumque dissectione,0057-013
+Galen,De nervorum dissectione,0057-014
+Galen,De instrumento odoratus,0057-015
+Galen,De uteri dissectione,0057-016
+Galen,De usu partium corporis humani I-XI,0057-017
+Galen,De motu musculorum,0057-018
+Galen,De Victu Attenuante,0057-019
+Galen,De utilitate respirationis,0057-020
+Galen,De semine,0057-021
+Galen,De foetuum formatione,0057-022
+Galen,An in arteriis sanguis contineatur,0057-023
+Galen,De optima corporis nostri constitutione,0057-024
+Galen,De bono habitu,0057-025
+Galen,Quod animi mores corporis temperamenta sequantur,0057-027
+Galen,De propriorum animi cuiuslibet affectuum dignotione et curatione,0057-028
+Galen,De animi cuiuslibet peccatorum dignotione et curatione,0057-029
+Galen,De atra bile,0057-030
+Galen,De usu pulsuum,0057-031
+Galen,De placitis Hippocratis et Platonis,0057-032
+Galen,De parvae pilae exercitio,0057-034
+Galen,De venereis,0057-035
+Galen,De sanitate tuenda,0057-036
+Galen,De rebus boni malique suci,0057-038
+Galen,De ptisana,0057-039
+Galen,De dignotione ex insomniis,0057-040
+Galen,De morborum differentiis,0057-041
+Galen,De causis morborum,0057-042
+Galen,De symptomatum differentiis,0057-043
+Galen,De symptomatum causis,0057-044
+Galen,De differentiis febrium,0057-045
+Galen,De morborum temporibus,0057-046
+Galen,De totius morbi temporibus,0057-047
+Galen,De typis,0057-048
+Galen,Adversus eos qui de typis scripserunt vel de circuitibus,0057-049
+Galen,De plenitudine,0057-050
+Galen,"De tremore, palpitatione, convulsione et rigore",0057-051
+Galen,De comate secundum Hippocratem,0057-052
+Galen,De marcore,0057-053
+Galen,De tumoribus praeter naturam,0057-054
+Galen,De inaequali intemperie,0057-055
+Galen,De difficultate respirationis,0057-056
+Galen,De locis affectis,0057-057
+Galen,De pulsibus ad tirones,0057-058
+Galen,De differentiis pulsuum,0057-059
+Galen,De dignoscendis pulsibus,0057-060
+Galen,De causis pulsuum,0057-061
+Galen,De praesagitione ex pulsibus,0057-062
+Galen,Synopsis librorum suorum de pulsibus,0057-063
+Galen,De crisibus,0057-064
+Galen,De diebus decretoriis,0057-065
+Galen,De methodo medendi,0057-066
+Galen,Ad Glauconem de methodo medendi,0057-067
+Galen,De venae sectione adversus Erasistratum,0057-068
+Galen,De venae sectione adversus Erasistrateos Romae degentes,0057-069
+Galen,De curandi ratione per venae sectionem,0057-070
+Galen,"De hirudinibus, revulsione, cucurbitula, incisione et scarificatione",0057-071
+Galen,De purgantium medicamentorum facultate,0057-072
+Galen,Quos quibus catharticis medicamentis et quando purgare oporteat,0057-073
+Galen,Pro puero epileptico consilium,0057-074
+Galen,De simplicium medicamentorum temperamentis ac facultatibus I-VI,0057-075
+Galen,De compositione medicamentorum secundum locos libri X,0057-076
+Galen,De compositione medicamentorum per genera,0057-077
+Galen,De antidotis,0057-078
+Galen,De theriaca ad Pisonem,0057-079
+Galen,Institutio logica,0057-081
+Galen,De sophismatis seu captionibus penes dictionem,0057-082
+Galen,De praenotione ad Epigenem,0057-083
+Galen,De substantia facultatum naturalium fragmentum,0057-084
+Galen,In Hippocratis De natura hominis,0057-085
+Galen,In Hippocratis vel Polybi Opus de Salubri Victus Ratione Privatorum Commentarius,0057-086
+Galen,In Hippocratis De victu acutorum,0057-087
+Galen,In Hippocratis Epidemiarum I,0057-089
+Galen,In Hippocratis Aphorismos Commentarii VII,0057-092
+Galen,Adversus Lycum,0057-093
+Galen,Adversus ea quae Juliano in Hippocratis Aphorismos enuntiata sunt,0057-094
+Galen,In Hippocratis De articulis,0057-095
+Galen,De Humero iis Modis Prolapso quos Hippocrates non Vidit,0057-096
+Galen,In Hippocratis Prognosticum,0057-099
+Galen,In Hippocratis De fracturis,0057-100
+Galen,In Hippocratis De officina medici,0057-101
+Galen,De musculorum dissectione ad tirones,0057-102
+Galen,De consuetudinibus,0057-103
+Galen,De experientia medica,0057-107
+Galen,ERROR,0057-111
+Galen,De causis respirationis,0057-114
+Aeneas Tacticus,Poliorcetica,0058-001
+Plato,Euthyphro,0059-001
+Plato,Apology,0059-002
+Plato,Crito,0059-003
+Plato,Phaedo,0059-004
+Plato,Cratylus,0059-005
+Plato,Theaetetus,0059-006
+Plato,Sophist,0059-007
+Plato,Statesman,0059-008
+Plato,Parmenides,0059-009
+Plato,Philebus,0059-010
+Plato,Symposium,0059-011
+Plato,Phaedrus,0059-012
+Plato,Alcibiades 1,0059-013
+Plato,Alcibiades 2,0059-014
+Plato,Hipparchus,0059-015
+Plato,Lovers,0059-016
+Plato,Theages,0059-017
+Plato,Charmides,0059-018
+Plato,Laches,0059-019
+Plato,Lysis,0059-020
+Plato,Euthydemus,0059-021
+Plato,Protagoras,0059-022
+Plato,Gorgias,0059-023
+Plato,Meno,0059-024
+Plato,Greater Hippias,0059-025
+Plato,Hippias Minor,0059-026
+Plato,Ion,0059-027
+Plato,Menexenus,0059-028
+Plato,Cleitophon,0059-029
+Plato,Republic,0059-030
+Plato,Timaeus,0059-031
+Plato,Critias,0059-032
+Plato,Minos,0059-033
+Plato,Laws,0059-034
+Plato,Epinomis,0059-035
+Plato,Letters,0059-036
+Plato,Definitiones,0059-037
+Plato,ERROR,0059-039
+Diodorus Siculus,Historical Library,0060-001
+ERROR,ERROR,0061-010
+Lucian of Samosata,Phalaris,0062-001
+Lucian of Samosata,Hippias,0062-002
+Lucian of Samosata,Bacchus,0062-003
+Lucian of Samosata,Hercules,0062-004
+Lucian of Samosata,Electrum,0062-005
+Lucian of Samosata,Muscae Encomium,0062-006
+Lucian of Samosata,Nigrinus,0062-007
+Lucian of Samosata,Demonax,0062-008
+Lucian of Samosata,De Domo,0062-009
+Lucian of Samosata,Patriae encomium,0062-010
+Lucian of Samosata,Macrobii,0062-011
+Lucian of Samosata,Verae historiae,0062-012
+Lucian of Samosata,Calumniae non temere credundum,0062-013
+Lucian of Samosata,Judicium vocalium,0062-014
+Lucian of Samosata,Symposium,0062-015
+Lucian of Samosata,Cataplus,0062-016
+Lucian of Samosata,Juppiter Confutatus,0062-017
+Lucian of Samosata,Juppiter Tragoedus,0062-018
+Lucian of Samosata,Gallus,0062-019
+Lucian of Samosata,Prometheus,0062-020
+Lucian of Samosata,Icaromenippus,0062-021
+Lucian of Samosata,Timon,0062-022
+Lucian of Samosata,Contemplantes,0062-023
+Lucian of Samosata,Vitarum auctio,0062-024
+Lucian of Samosata,Piscator,0062-025
+Lucian of Samosata,Bis accusatus sive tribunalia,0062-026
+Lucian of Samosata,De Sacrificiis,0062-027
+Lucian of Samosata,Adversus indoctum et libros multos ementem,0062-028
+Lucian of Samosata,Somnium sive vita Luciani,0062-029
+Lucian of Samosata,De parasito sive artem esse parasiticam,0062-030
+Lucian of Samosata,Philopseudes sive incredulus,0062-031
+Lucian of Samosata,Dearum judicium,0062-032
+Lucian of Samosata,De mercede,0062-033
+Lucian of Samosata,Anacharsis,0062-034
+Lucian of Samosata,Necyomantia,0062-035
+Lucian of Samosata,De luctu,0062-036
+Lucian of Samosata,Rhetorum praeceptor,0062-037
+Lucian of Samosata,Alexander,0062-038
+Lucian of Samosata,Imagines,0062-039
+Lucian of Samosata,Pro imaginibus,0062-040
+Lucian of Samosata,De Syria dea,0062-041
+Lucian of Samosata,De Morte Peregrini,0062-042
+Lucian of Samosata,Fugitivi,0062-043
+Lucian of Samosata,Toxaris vel amicitia,0062-044
+Lucian of Samosata,De saltatione,0062-045
+Lucian of Samosata,Lexiphanes,0062-046
+Lucian of Samosata,Eunuchus,0062-047
+Lucian of Samosata,De astrologia,0062-048
+Lucian of Samosata,Pseudologista,0062-049
+Lucian of Samosata,Deorum concilium,0062-050
+Lucian of Samosata,Tyrannicida,0062-051
+Lucian of Samosata,Abdicatus,0062-052
+Lucian of Samosata,Quomodo historia conscribenda sit,0062-053
+Lucian of Samosata,Dipsades,0062-054
+Lucian of Samosata,Saturnalia,0062-055
+Lucian of Samosata,Herodotus,0062-056
+Lucian of Samosata,Zeuxis,0062-057
+Lucian of Samosata,Pro lapsu inter salutandum,0062-058
+Lucian of Samosata,Apologia,0062-059
+Lucian of Samosata,Harmonides,0062-060
+Lucian of Samosata,Hesiod,0062-061
+Lucian of Samosata,Scytha,0062-062
+Lucian of Samosata,Hermotimus,0062-063
+Lucian of Samosata,Prometheus es in verbis,0062-064
+Lucian of Samosata,Navigium,0062-065
+Lucian of Samosata,Dialogi mortuorum,0062-066
+Lucian of Samosata,Dialogi Marini,0062-067
+Lucian of Samosata,Dialogi deorum,0062-068
+Lucian of Samosata,Dialogi meretricii,0062-069
+Lucian of Samosata,Soleocista,0062-070
+Lucian of Samosata,Podagra,0062-071
+Hanno,Periplus Hannonis,0064-001
+Agatharchides,De Rubro Mari,0067-001
+Arrian,Ἀλεξάνδρου Ἀνάβασις,0074-001
+Arrian,Indica,0074-002
+Arrian,Cynegeticus,0074-003
+Arrian,Periplus Ponti Euxini,0074-004
+Arrian,Tactica,0074-005
+Arrian,Acies Contra Alanos,0074-006
+Dionysius of Halicarnassus,Antiquitates Romanae,0081-001
+Dionysius of Halicarnassus,De antiquis oratoribus,0081-002
+Dionysius of Halicarnassus,De Lysia,0081-003
+Dionysius of Halicarnassus,De Isocrate,0081-004
+Dionysius of Halicarnassus,De Isaeo,0081-005
+Dionysius of Halicarnassus,De Demosthene,0081-006
+Dionysius of Halicarnassus,Ad Ammaeum,0081-008
+Dionysius of Halicarnassus,De Dinarcho,0081-009
+Dionysius of Halicarnassus,De Thucydide,0081-010
+Dionysius of Halicarnassus,De Thucydidis idiomatibus,0081-011
+Dionysius of Halicarnassus,De Compositione Verborum,0081-012
+Dionysius of Halicarnassus,Epistula ad Pompeium Geminum,0081-015
+Aeschylus,Supplices,0085-001
+Aeschylus,Persians,0085-002
+Aeschylus,Prometheus Bound,0085-003
+Aeschylus,Seven Against Thebes,0085-004
+Aeschylus,Agamemnon,0085-005
+Aeschylus,Libation Bearers,0085-006
+Aeschylus,Eumenides,0085-007
+Aeschylus,ERROR,0085-010
+Aristotle,Analytica priora,0086-001
+Aristotle,De anima,0086-002
+Aristotle,Constitution of the Athenians,0086-003
+Aristotle,Categoriae,0086-006
+Aristotle,De divinatione per somnum,0086-008
+Aristotle,Eudemian Ethics,0086-009
+Aristotle,Nicomachean Ethics,0086-010
+Aristotle,De generatione et corruptione,0086-013
+Aristotle,Historia animalium,0086-014
+Aristotle,De animalium incessu,0086-015
+Aristotle,De insomniis,0086-016
+Aristotle,De interpretatione,0086-017
+Aristotle,"De iuventute et senectute, De vita et morte",0086-018
+Aristotle,De longitudine et brevitate vitae,0086-020
+Aristotle,De animalium motione,0086-021
+Aristotle,De memoria et reminiscentia,0086-024
+Aristotle,Metaphysics,0086-025
+Aristotle,Meteorologica,0086-026
+Aristotle,Economics,0086-029
+Aristotle,Poetics,0086-034
+Aristotle,Politics,0086-035
+Aristotle,De respiratione,0086-037
+Aristotle,Rhetoric,0086-038
+Aristotle,De sophisticis elenchis,0086-040
+Aristotle,De sensu et sensibilibus,0086-041
+Aristotle,De somno et vigilia,0086-042
+Aristotle,De spiritu,0086-043
+Aristotle,Topica,0086-044
+Aristotle,On Virtues and Vices,0086-045
+Aristotle,Physica (textus alter),0086-054
+Aelius Herodianus,Περὶ διχρόνων,0087-004
+De signis tempestatum,Characters,0093-009
+Pseudo-Plutarch,De musica,0094-002
+Strabo,Geography,0099-001
+ERROR,ERROR,0131-001
+ERROR,ERROR,0137-001
+ERROR,ERROR,0141-002
+ERROR,ERROR,0146-001
+ERROR,ERROR,0165-001
+ERROR,ERROR,0174-001
+ERROR,ERROR,0186-005
+ERROR,ERROR,0198-001
+Bacchylides,Epinicians,0199-001
+Bacchylides,Dithyrambs,0199-002
+Bacchylides,ERROR,0199-009
+ERROR,ERROR,0208-001
+ERROR,ERROR,0211-002
+ERROR,ERROR,0215-002
+ERROR,ERROR,0216-002
+ERROR,ERROR,0218-002
+ERROR,ERROR,0219-002
+ERROR,ERROR,0220-002
+ERROR,ERROR,0221-004
+ERROR,ERROR,0232-003
+ERROR,ERROR,0237-004
+ERROR,ERROR,0239-003
+ERROR,ERROR,0245-002
+ERROR,ERROR,0255-002
+ERROR,ERROR,0261-003
+ERROR,ERROR,0265-003
+ERROR,ERROR,0267-003
+ERROR,ERROR,0268-002
+"Aristides, Aelius",Orationes 1,0284-001
+"Aristides, Aelius",Orationes 2,0284-002
+"Aristides, Aelius",Orationes 3,0284-003
+"Aristides, Aelius",Orationes 4,0284-004
+"Aristides, Aelius",Orationes 5,0284-005
+"Aristides, Aelius",Orationes 6,0284-006
+"Aristides, Aelius",Orationes 7,0284-007
+"Aristides, Aelius",Orationes 8,0284-008
+"Aristides, Aelius",Orationes 9,0284-009
+"Aristides, Aelius",Orationes 10,0284-010
+"Aristides, Aelius",Orationes 11,0284-011
+"Aristides, Aelius",Orationes 12,0284-012
+"Aristides, Aelius",Orationes 13,0284-013
+"Aristides, Aelius",Orationes 14,0284-014
+"Aristides, Aelius",Orationes 15,0284-015
+"Aristides, Aelius",Orationes 16,0284-016
+"Aristides, Aelius",Orationes 17,0284-017
+"Aristides, Aelius",Orationes 18,0284-018
+"Aristides, Aelius",Orationes 19,0284-019
+"Aristides, Aelius",Orationes 20,0284-020
+"Aristides, Aelius",Orationes 21,0284-021
+"Aristides, Aelius",Orationes 22,0284-022
+"Aristides, Aelius",Orationes 23,0284-023
+"Aristides, Aelius",Orationes 24,0284-024
+"Aristides, Aelius",Orationes 25,0284-025
+"Aristides, Aelius",Orationes 26,0284-026
+"Aristides, Aelius",Orationes 27,0284-027
+"Aristides, Aelius",Orationes 28,0284-028
+"Aristides, Aelius",Orationes 29,0284-029
+"Aristides, Aelius",Orationes 30,0284-030
+"Aristides, Aelius",Orationes 31,0284-031
+"Aristides, Aelius",Orationes 32,0284-032
+"Aristides, Aelius",Orationes 33,0284-033
+"Aristides, Aelius",Orationes 34,0284-034
+"Aristides, Aelius",Orationes 35,0284-035
+"Aristides, Aelius",Orationes 36,0284-036
+"Aristides, Aelius",Orationes 37,0284-037
+"Aristides, Aelius",Orationes 38,0284-038
+"Aristides, Aelius",Orationes 39,0284-039
+"Aristides, Aelius",Orationes 40,0284-040
+"Aristides, Aelius",Orationes 41,0284-041
+"Aristides, Aelius",Orationes 42,0284-042
+"Aristides, Aelius",Orationes 43,0284-043
+"Aristides, Aelius",Orationes 44,0284-044
+"Aristides, Aelius",Orationes 45,0284-045
+"Aristides, Aelius",Orationes 46,0284-046
+"Aristides, Aelius",Orationes 47,0284-047
+"Aristides, Aelius",Orationes 48,0284-048
+"Aristides, Aelius",Orationes 49,0284-049
+"Aristides, Aelius",Orationes 50,0284-050
+"Aristides, Aelius",Orationes 51,0284-051
+"Aristides, Aelius",Orationes 52,0284-052
+"Aristides, Aelius",Orationes 53,0284-053
+"Aristides, Aelius",Orationes 54,0284-054
+"Aristides, Aelius",Orationes 55,0284-055
+"Aristides, Aelius",Ars Rhetorica,0284-056
+ERROR,ERROR,0288-003
+Lycophron,Alexandra,0341-002
+Didymus Alexandrinus,Mensurae marmorum ac lignorum,0357-001
+Nicomachus of Gerasa,Introductio arithmetica,0358-001
+Nicomachus of Gerasa,Harmonicum enchiridion,0358-002
+Nicomachus of Gerasa,Excerpta,0358-004
+Nicomachus of Gerasa,Problemata arithmetica,0358-005
+Cleonides,Introductio Harmonica,0361-001
+Cassius Dio Cocceianus,Historia Romana,0385-001
+ERROR,ERROR,0487-008
+Pausanias,Description of Greece,0525-001
+Flavius Josephus,Jewish Antiquities,0526-001
+Flavius Josephus,Life of Josephus,0526-002
+Flavius Josephus,Against Apion,0526-003
+Flavius Josephus,The Jewish War,0526-004
+Achilles Tatius,Leucippe and Clitophon,0532-001
+Callimachus,Epigrams,0533-003
+Callimachus,Epigrams and Fragments,0533-004
+Callimachus,Hymn to Zeus,0533-015
+Callimachus,Hymn to Apollo,0533-016
+Callimachus,Hymn to Artemis,0533-017
+Callimachus,Hymn to Delos,0533-018
+Callimachus,Hymn to Athena,0533-019
+Callimachus,Hymn to Demeter,0533-020
+Demades,On the Twelve Years,0535-001
+Lysias,On the Murder of Eratosthenes,0540-001
+Lysias,Funeral Oration,0540-002
+Lysias,Against Simon,0540-003
+Lysias,On A Wound By Premeditation,0540-004
+Lysias,For Callias,0540-005
+Lysias,Against Andocides,0540-006
+Lysias,On the Olive Stump,0540-007
+Lysias,Accusation of Calumny,0540-008
+Lysias,For The Soldier,0540-009
+Lysias,Against Theomnestus 1,0540-010
+Lysias,Against Theomnestus 2,0540-011
+Lysias,Against Eratosthenes,0540-012
+Lysias,Against Agoratus: In Pursuance of a Writ,0540-013
+Lysias,Against Alcibiades: For Deserting the Ranks,0540-014
+Lysias,Against Alcibiades: For Refusal of Military Service,0540-015
+Lysias,In Defense of Mantitheus,0540-016
+Lysias,On The Property Of Eraton,0540-017
+Lysias,On the Confiscation of the Property Of The Brother Of Nicias,0540-018
+Lysias,On the Property of Aristophanes: Against the Treasury,0540-019
+Lysias,For Polystratus,0540-020
+Lysias,Defense Against A Charge Of Taking Bribes,0540-021
+Lysias,Against The Corn-Dealers,0540-022
+Lysias,Against Pancleon,0540-023
+Lysias,On The Refusal Of A Pension to the Invalid,0540-024
+Lysias,Defense Against a Charge of Subverting the Democracy,0540-025
+Lysias,On the Scrutiny of Evandros,0540-026
+Lysias,Against Epicrates and his Fellow-envoys: Supplementary,0540-027
+Lysias,Against Ergocles: Supplementary,0540-028
+Lysias,Against Philocrates,0540-029
+Lysias,Against Nicomachus,0540-030
+Lysias,Against Philon,0540-031
+Lysias,Against Diogeiton,0540-032
+Lysias,Olympic Oration,0540-033
+Lysias,Against The Subversion of the Ancestral Constitution of Athens,0540-034
+ERROR,ERROR,0541-044
+Polybius,Histories,0543-001
+Aelian,De Natura Animalium,0545-001
+Aelian,Varia Historia,0545-002
+Aelian,Epistulae Rusticae,0545-003
+Apollodorus,Library,0548-001
+Apollodorus,Epitome,0548-002
+Appianus of Alexandria,Kings,0551-002
+Appianus of Alexandria,Italy,0551-003
+Appianus of Alexandria,Samnite History,0551-004
+Appianus of Alexandria,Gallic History,0551-005
+Appianus of Alexandria,Sicily and the Other Islands,0551-006
+Appianus of Alexandria,Wars in Spain,0551-007
+Appianus of Alexandria,Hannibalic War,0551-008
+Appianus of Alexandria,Punic Wars,0551-009
+Appianus of Alexandria,Numidian Affairs,0551-010
+Appianus of Alexandria,Macedonian Affairs,0551-011
+Appianus of Alexandria,Illyrian Wars,0551-012
+Appianus of Alexandria,Syrian Wars,0551-013
+Appianus of Alexandria,Mithridatic Wars,0551-014
+Appianus of Alexandria,Civil Wars,0551-017
+Archimedes,De sphaera et cylindro,0552-001
+Archimedes,Dimensio circuli,0552-002
+Archimedes,De conoidibus et sphaeroidibus,0552-003
+Archimedes,De lineis spiralibus,0552-004
+Archimedes,De planorum aequilibriis,0552-005
+Archimedes,Arenarius,0552-006
+Archimedes,Quadratura parabolae,0552-007
+Archimedes,Stomachion,0552-009
+Archimedes,Ad Eratosthenem methodus,0552-010
+Archimedes,Liber assumptorum,0552-011
+Archimedes,Problema bovinum,0552-012
+Archimedes,Fragmenta,0552-013
+Chariton of Aphrodisias,De Chaerea et Callirhoe,0554-001
+Clement of Alexandria,Protrepticus,0555-001
+Clement of Alexandria,Paedagogus,0555-002
+Clement of Alexandria,ERROR,0555-003
+Clement of Alexandria,Eclogae propheticae,0555-005
+Clement of Alexandria,Quis Dis Salvetur,0555-006
+Clement of Alexandria,Excerpta ex Theodoto,0555-007
+Clement of Alexandria,Exhortation to Endurance or To the Newly Baptized (Fragment 44),0555-008
+Asclepiodotus,Tactica,0556-001
+Epictetus,Discourses,0557-001
+Epictetus,The Handbook,0557-002
+Epictetus,Fragments,0557-003
+Hero of Alexandria,Pneumatica,0559-001
+Hero of Alexandria,De automatis,0559-002
+Hero of Alexandria,Mechanicorum fragmenta,0559-004
+Hero of Alexandria,Catoptrica,0559-005
+Hero of Alexandria,Metrica,0559-006
+Hero of Alexandria,Dioptra,0559-007
+Hero of Alexandria,Stereometrica,0559-010
+Hero of Alexandria,De mensuris,0559-011
+Hero of Alexandria,Belopoeica,0559-012
+Hero of Alexandria,Fragmenta Heroniana,0559-014
+Longinus,On the Sublime,0560-001
+Longus,Daphnis and Chloe,0561-001
+Marcus Aurelius,Ad Se Ipsum,0562-001
+ERROR,ERROR,0568-002
+ERROR,ERROR,0570-002
+ERROR,ERROR,0591-001
+ERROR,ERROR,0591-002
+Hermogenes,Progymnasmata [Dub-],0592-001
+Hermogenes,Περὶ στάσεων,0592-002
+Hermogenes,Περὶ εὑρέσεως [Sp-],0592-003
+Hermogenes,Περὶ ἰδεῶν λόγου,0592-004
+Hermogenes,Περὶ μεθόδου δεινότητος [Sp-],0592-005
+ERROR,ERROR,0593-001
+ERROR,ERROR,0593-002
+Rufus Soph-,Ars rhetorica,0606-001
+Demetrius of Phaleron,Libro de Elocutione,0613-001
+Babrius,Fabulae Aesopeae,0614-001
+Hippocrates,De prisca medicina,0627-001
+Hippocrates,"De aere, aquis, locis",0627-002
+Hippocrates,Prognosticon,0627-003
+Hippocrates,De diaeta in morbis acutis,0627-004
+Hippocrates,De diaeta acutorum (spurium),0627-005
+Hippocrates,De morbis popularibus,0627-006
+Hippocrates,De capitis vulneribus,0627-007
+Hippocrates,De officina medici,0627-008
+Hippocrates,De fracturis,0627-009
+Hippocrates,De articulis,0627-010
+Hippocrates,Vectiarius,0627-011
+Hippocrates,Aphorismi,0627-012
+Hippocrates,Jusjurandum,0627-013
+Hippocrates,Lex,0627-014
+Hippocrates,De humoribus,0627-015
+Hippocrates,Prorrheticon I,0627-016
+Hippocrates,Coa praesagia,0627-017
+Hippocrates,De arte,0627-018
+Hippocrates,De natura hominis,0627-019
+Hippocrates,De salubri diaeta,0627-020
+Hippocrates,De flatibus,0627-021
+Hippocrates,De liquidorum usu,0627-022
+Hippocrates,De morbis i-iii,0627-023
+Hippocrates,De affectionibus,0627-025
+Hippocrates,De locis in homine,0627-026
+Hippocrates,De morbo sacro,0627-027
+Hippocrates,De ulceribus,0627-028
+Hippocrates,De haemorrhoidibus,0627-029
+Hippocrates,De fistulis,0627-030
+Hippocrates,De diaeta,0627-031
+Hippocrates,De affectionibus interioribus,0627-032
+Hippocrates,De natura muliebri,0627-033
+Hippocrates,De octimestri partu,0627-035
+Hippocrates,De muliebribus,0627-036
+Hippocrates,De virginum morbis,0627-037
+Hippocrates,De superfoetatione,0627-038
+Hippocrates,De exsectione foetus,0627-039
+Hippocrates,De anatomia,0627-040
+Hippocrates,De dentitione,0627-041
+Hippocrates,De glandulis,0627-042
+Hippocrates,De carnibus,0627-043
+Hippocrates,De corde,0627-045
+Hippocrates,De alimento,0627-046
+Hippocrates,De visu,0627-047
+Hippocrates,De natura ossium,0627-048
+Hippocrates,De medico,0627-049
+Hippocrates,De habitu decenti,0627-050
+Hippocrates,Praeceptiones,0627-051
+Hippocrates,De crisibus,0627-052
+Hippocrates,De diebus criticis,0627-053
+Hippocrates,"Epistulae, Decretum, Orationes",0627-055
+ERROR,ERROR,0631-002
+ERROR,ERROR,0632-005
+Philostratus the Athenian,Life of Apollonius of Tyana,0638-001
+Philostratus the Athenian,Lives of the Sophists,0638-003
+Philostratus the Athenian,Heroicus,0638-004
+Philostratus the Athenian,Nero,0638-005
+Philostratus the Athenian,Epistulae et dialexeis,0638-006
+Philostratus the Athenian,De Gymnastica,0638-007
+Philostratus the Athenian,ERROR,0638-009
+Xenophon of Ephesus,Ephesiaca,0641-001
+Onasander,Strategicus,0648-001
+Aratus Solensis,Phaenomena,0653-001
+Aratus Solensis,ERROR,0653-002
+Parthenius of Nicaea,Narrationes Amatoriae,0655-001
+Philumenus,De venenatis animalibus eorumque remediis,0671-001
+ERROR,ERROR,0679-001
+Ammonius Grammaticus,περὶ ὁμοίων καὶ διαφόρων λέξεων,0708-001
+Aretaeus of Cappadocia,De causis et signis acutorum morborum libri duo,0719-001
+Aretaeus of Cappadocia,De causis et signis diuturnorum morborum libri duo,0719-002
+Aretaeus of Cappadocia,De curatione acutorum morborum libri duo,0719-003
+Aretaeus of Cappadocia,De curatione diuturnorum morborum libri duo,0719-004
+Alexander of Aphrodisias,De mixtione,0732-001
+Alexander of Aphrodisias,De anima libri mantissa,0732-011
+Alexander of Aphrodisias,Quaestiones,0732-012
+Pseudo-Hippocrates,De septimestri partu,0751-034
+"Anubion, Poeta Astrologus",Fragmenta,1126-003
+Aristarchus of Samos,De magnitudinibus et distantiis solis et lunae,1181-001
+Athenagoras,Legatio sive Supplicatio pro Christianis,1205-001
+Athenagoras,De Resurrectione,1205-002
+Autolycus,De Sphaera Quae Movetur,1210-001
+Autolycus,De Ortibus et Occasibus,1210-002
+Barnabae epistula,The Epistle of Barnabas,1216-001
+Certamen Homeri et Hesiodi,Certamen Homeri et Hesiodi,1252-002
+Clemens Romanus (Clement of Rome),The First Epistle of Clement to the Corinthians,1271-001
+Clemens Romanus (Clement of Rome),The Second Epistle of Clement to the Corinthians,1271-002
+ERROR,ERROR,1274-002
+ERROR,ERROR,1296-001
+Anonymous,Didache,1311-001
+Dorotheus of Sidon,Fragmenta alia antiqua,1337-003
+ERROR,ERROR,1342-002
+ERROR,ERROR,1355-002
+Harpocration,Lexicon in decem oratores Atticos,1389-001
+ERROR,ERROR,1391-001
+ERROR,ERROR,1405-001
+Hipparchus,In Arati et Eudoxi phaenomena commentariorum libri iii,1431-003
+"Maximus, Astrologus",Carminum de actionum auspiciis reliquiae,1487-001
+"Maximus, Astrologus",Carminum de actionum auspiciis reliquiae (epitome),1487-002
+ERROR,ERROR,1533-001
+ERROR,ERROR,1556-002
+ERROR,ERROR,1577-001
+Philostratus Sophista,Imagines,1600-001
+ERROR,ERROR,1604-002
+Polycarp,Epistula ad Philippenses,1622-001
+ERROR,ERROR,1632-001
+Seniores Apud Irenaeum,Reliquiae plurium anonymorum,1665-001
+ERROR,ERROR,1692-004
+ERROR,ERROR,1715-001
+Vitae Aesopi,Vita Aesopi Pl vel Accursiana (sub auctore Maximo Planude) (recensio 1),1765-003
+Vitae Aesopi,Vita Aesopi (fort- auctore Aphthonio),1765-004
+Vitae Aesopi,Βιβλίον μυθικὸν τοῦ Αἰσώπου,1765-005
+Tatianus,Oratio ad Graecos,1766-001
+Euclid,Elementa,1799-001
+Euclid,Data (demonstrationes alterae),1799-008
+Euclid,Opticorum recensio Theonis,1799-01
+Euclid,Catoptrica (recensio Theonis?),1799-011
+Euclid,Phaenomena,1799-012
+Euclid,Phaenomena (recensio b),1799-013
+Euclid,Phaenomena (demonstrationes alterae recensionis b),1799-014
+Euclid,Sectio canonis [Sp-],1799-015
+Euclid,Epigramma,1799-017
+Origen,Contra Celsum,2042-001
+Origen,Exhortatio ad martyrium,2042-007
+Origen,De oratione,2042-008
+Origen,Fragmentum In Lamentationes (In Catenis de Octateucho),2042-012
+Canticum Euripidis,Ex Orestis Stasimo I,2138-001
+Epitaphium Sicili,Sicili Epitaphium,2139-001
