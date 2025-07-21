@@ -4,7 +4,7 @@ from typing import List
 import os
 
 # Import the query engine (assuming it's in a file called greek_query_engine.py)
-from engine import create_query_engine
+from engine import create_query_engine, GreekQueryEngine
 
 def format_word_results(words: List) -> pd.DataFrame:
     """Format query results into a DataFrame for display."""
@@ -23,7 +23,8 @@ def format_word_results(words: List) -> pd.DataFrame:
             'Mood': word.mood or '',
             'Voice': word.voice or '',
             'Relation': word.relation or '',
-            'Sentence ID': word.sentence_id
+            'Sentence ID': word.sentence_id,
+            'Document URN': word.urn
         })
     
     return pd.DataFrame(data)
@@ -45,24 +46,30 @@ def create_query_examples():
         "Indicative verbs with accusative objects": ":verb:indicative:root > :accusative[relation=OBJ]"
     }
     
-def get_files(urns: List[str]):
+def create_engine_from_files(urns: List[str]):
     this_dir = os.path.dirname(__file__)
     
-    for urn in urns:
-        doc_path = os.path.join(this_dir, "data", "xml", f"{urn}.xml")
-        try:
-            with open(doc_path, 'rb') as doc:
-                xml_content = doc.read().decode('utf-8')
-        except: 
-            st.error("Error opening selected documents.")
-            return False
+    all_files = {}
+    
+    with st.spinner("Loading XML data..."):
+        for urn in urns:
+            doc_path = os.path.join(this_dir, "data", "xml", f"{urn}.xml")
+            try:
+                with open(doc_path, 'rb') as doc:
+                    xml_content = doc.read().decode('utf-8')
+                    all_files[urn] = xml_content
+            except: 
+                st.error(f"Error opening document with urn {urn}.")  
+                #return False
         
-        with st.spinner("Loading XML data..."):
-            st.session_state.query_engine = create_query_engine(xml_content)
-            st.success("XML data loaded successfully!")
-            st.info("Ready to execute queries.")
-    return True
-        
+    st.success("XML data loaded successfully!")
+    st.info("Ready to execute queries.")
+    return create_query_engine(all_files)
+
+@st.cache_resource    
+def get_query_engine(urns):
+    return create_engine_from_files(urns)
+
 def main():
     st.set_page_config(
         page_title="Greek Text Query Engine",
@@ -125,104 +132,126 @@ def main():
     
     with col2:
         search_button = st.button("🔍 Search", type="primary")
-         
-    # Execute query
-    if search_button and query:
-        if 'query_engine' not in st.session_state or st.session_state.query_engine is None:
-            st.error("No data loaded. Please load Perseus Treebank XML data first.")
-            return
         
-        try:
-            with st.spinner("Executing query..."):
-                results = st.session_state.query_engine.query(query)
+    #QUERY EXECUTION
+    if search_button and query:
+        if 'selected_urns' not in st.session_state or not st.session_state.get('engine_loaded', False):
+            st.error("No data loaded. Have you selected and confirmed your document list?")
+        else:
+            try:
+                print("attempting to execute query")
+                with st.spinner("Executing query..."):
+                    query_engine = get_query_engine(st.session_state.selected_urns)
+                    results = query_engine.query(query)
+                
+                st.session_state.current_results = results
+                st.session_state.current_query = query
+            except Exception as e:
+                st.error(f"Error executing query: {str(e)}")
+                st.info("Please check your query syntax and try again.")
+
+    #DISPLAY RESULTS
+    if 'current_results' in st.session_state and st.session_state.current_results:
+        results = st.session_state.current_results
+        query = st.session_state.current_query
+        total_results = len(results)
+        
+        st.success(f"Found {total_results} results for query: `{query}`")
+        if total_results > 50000:
+            st.warning(f"⚠️ Very large result set ({total_results:,} results). Consider refining your query for better performance.")
+        
+        if st.button("🗑️ Clear Results"):
+            del st.session_state.current_results
+            del st.session_state.current_query
+            st.rerun()
+        
+        col1, col2 = st.columns([1, 1])
+        with col1:
+            results_per_page = st.selectbox("Results per page:", [50, 100, 500, 1000], index=1, key="results_per_page")
+            total_pages = (total_results + results_per_page - 1) // results_per_page
+        with col2:
+            page = st.number_input(
+                f"Page (1-{total_pages}):",
+                min_value=1,
+                max_value=total_pages,
+                value=1,
+                key="current_page"
+            )
+        
+        #get slice sizes, then show results
+        start_idx = (page - 1) * results_per_page
+        end_idx = min(start_idx + results_per_page, total_results)
+        
+        st.info(f"Showing results {start_idx + 1}-{end_idx} of {total_results}")
+        df_results = format_word_results(results[start_idx:end_idx])
+        st.dataframe(df_results, use_container_width=True)
+        
+        #DATA DOWNLOAD
+        #current page and full results - WILL BE USEFUL WHEN SENTENCES ARE ADDED
+        col1, col2 = st.columns(2)
+        with col1:
+            csv_page = df_results.to_csv(index=False)
+            st.download_button(
+                label=f"📥 Download Current Page as CSV ({len(df_results)} results)",
+                data=csv_page,
+                file_name=f"greek_query_results_page_{page}_{query.replace(' ', '_')}.csv",
+                mime="text/csv",
+                key="download_page"
+            )
+        
+        with col2:
+            if total_results > 10000:
+                st.warning(f"⚠️ Full export contains {total_results} results - may be very large!")
             
-            if results:
-                st.success(f"Found {len(results)} results")
-                
-                # Display results in a table
-                df = format_word_results(results)
-                st.dataframe(df, use_container_width=True)
-                
-                # Show detailed results
-                # with st.expander("Detailed Results"):
-                #     for i, word in enumerate(results, 1):
-                #         st.markdown(f"**Result {i}:**")
-                #         col1, col2, col3 = st.columns(3)
-                        
-                #         with col1:
-                #             st.write(f"**Form:** {word.form}")
-                #             st.write(f"**Lemma:** {word.lemma}")
-                #             st.write(f"**Part of Speech:** {word.part_of_speech or 'N/A'}")
-                        
-                #         with col2:
-                #             st.write(f"**Case:** {word.case or 'N/A'}")
-                #             st.write(f"**Number:** {word.number or 'N/A'}")
-                #             st.write(f"**Tense:** {word.tense or 'N/A'}")
-                        
-                #         with col3:
-                #             st.write(f"**Mood:** {word.mood or 'N/A'}")
-                #             st.write(f"**Voice:** {word.voice or 'N/A'}")
-                #             st.write(f"**Relation:** {word.relation or 'N/A'}")
-                        
-                #         st.markdown("---")
-                
-                # Export functionality
-                csv = df.to_csv(index=False)
+            if st.button("Prepare Full CSV Download", key="prepare_csv"):
+                with st.spinner("Preparing full results..."):
+                    df_full = format_word_results(results)
+                    csv_full = df_full.to_csv(index=False)
+                    st.session_state.full_csv_data = csv_full
+                    st.session_state.full_csv_ready = True
+            
+            if st.session_state.get('full_csv_ready', False):
                 st.download_button(
-                    label="📥 Download Results as CSV",
-                    data=csv,
-                    file_name=f"greek_query_results_{query.replace(' ', '_')}.csv",
-                    mime="text/csv"
+                    label=f"📥 Download All Results as CSV ({total_results} results)",
+                    data=st.session_state.full_csv_data,
+                    file_name=f"greek_query_results_full_{query.replace(' ', '_')}.csv",
+                    mime="text/csv",
+                    key="download_full"
                 )
                 
-            else:
-                st.warning("No results found for your query.")
-                
-        except Exception as e:
-            st.error(f"Error executing query: {str(e)}")
-            st.info("Please check your query syntax and try again.")
-    
-    # Data upload section
+    elif 'current_results' in st.session_state and not st.session_state.current_results:
+        st.warning("No results found for your last query.")
+        
+    #DATA HANDLING
     st.markdown("---")
     st.header("Data Management")
 
     df = pd.read_csv("matched_urns.csv")
-    df["display_label"] = df.apply(lambda row: f"{row['URN']} {row['Author']}, {row['Title']}", axis=1)
-    selected_labels = st.multiselect("Select document(s):", df["display_label"].tolist())
-
-    # Filter the original DataFrame based on the selected labels
-    selected_rows = df[df["display_label"].isin(selected_labels)]
-
-    # Show the selected data (you can do whatever you want with this)
+    df["Display Label"] = df.apply(lambda row: f"{row['URN']} {row['Author']}, {row['Title']}", axis=1)
+    
+    container = st.container()
+    all = st.checkbox("Select all")
+    if all:
+        selected_labels = container.multiselect("Select document(s):", df["Display Label"].tolist(), df["Display Label"].tolist())
+    else:
+        selected_labels = container.multiselect("Select document(s):", df["Display Label"].tolist())
+        
+    selected_rows = df[df["Display Label"].isin(selected_labels)]
     st.write("Current selection:")
     st.dataframe(selected_rows)
-    
     confirmed_selection = st.button("Confirm Selection")
     
-    if confirmed_selection:
-        #try:
-        urns = [urn for urn in df["URN"]]
-        get_files(urns)
-        #except:
-        st.error("Error fetching selected files.")
-
-    st.markdown("Alternatively, you can upload your own XML data below.")
-    
-    uploaded_file = st.file_uploader(
-        "Upload Perseus Treebank XML file",
-        type=['xml'],
-        help="Upload your Perseus Treebank XML data to search"
-    )
-    
-    if uploaded_file is not None:
-        try:
-            xml_content = uploaded_file.read().decode('utf-8')
-            with st.spinner("Processing XML data..."):
-                st.session_state.query_engine = create_query_engine(xml_content)
-                st.success("XML data uploaded successfully!")
-                st.info("Ready to execute queries.")
-        except Exception as e:
-            st.error(f"Error loading XML file: {str(e)}")
+    urns = []
+    if confirmed_selection and not selected_rows.empty:
+        urns = [urn for urn in selected_rows["URN"]]
+        st.session_state.selected_urns = urns #might need to convert to tuple
+        st.session_state.engine_loaded = True
+        st.success("URNs successfully saved.")
+        print("query engine created or loaded")            
+    if selected_rows.empty:
+        st.info("Please select one or more documents")
+        st.session_state.selected_urns =[]
+        st.session_state.engine_loaded = False
 
 if __name__ == "__main__":
     main()

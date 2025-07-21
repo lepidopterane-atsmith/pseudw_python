@@ -29,6 +29,7 @@ class Word:
     id: int
     parent_id: int
     sentence_id: int
+    urn: str
     relation: str
     part_of_speech: Optional[str] = None
     person: Optional[str] = None
@@ -40,7 +41,6 @@ class Word:
     case: Optional[str] = None
     degree: Optional[str] = None
     children: List['Word'] = None
-    doc_urn: Optional[str] = None
     
     def __post_init__(self):
         if self.children is None:
@@ -96,7 +96,7 @@ class GreekTextParser:
         
         return features
     
-    def xml_to_words(self, xml_content: str) -> List[Word]:
+    def xml_to_words(self, xml_content: str, doc_urn: str) -> List[Word]:
         """Convert Perseus Treebank XML to Word objects."""
         root = ET.fromstring(xml_content)
         words = []
@@ -112,7 +112,7 @@ class GreekTextParser:
                 form = word_node.get('form', '')
                 relation = word_node.get('relation', '')
                 postag = word_node.get('postag', '')
-                #urn=
+                urn = doc_urn
                 
                 # Parse linguistic features
                 features = self.parse_postag(postag)
@@ -124,6 +124,7 @@ class GreekTextParser:
                     id=word_id,
                     parent_id=parent_id,
                     sentence_id=sentence_id,
+                    urn=urn,
                     relation=relation,
                     **features
                 )
@@ -324,8 +325,10 @@ class GreekQueryEngine:
         
         return False
 
-def create_query_engine(xml_content: str) -> GreekQueryEngine:
-    """Create a query engine from Perseus Treebank XML."""
+def create_query_engine(xml_docs: dict[str, str]) -> GreekQueryEngine:
     parser = GreekTextParser()
-    words = parser.xml_to_words(xml_content)
-    return GreekQueryEngine(words)
+    all_words = []
+    for urn, content in xml_docs.items():
+        words = parser.xml_to_words(content, urn)
+        all_words.extend(words)
+    return GreekQueryEngine(all_words)
