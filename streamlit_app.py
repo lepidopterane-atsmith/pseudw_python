@@ -3,8 +3,7 @@ import pandas as pd
 from typing import List
 import os
 
-# Import the query engine (assuming it's in a file called greek_query_engine.py)
-from engine import create_query_engine, GreekQueryEngine
+from engine import create_query_engine
 
 def format_word_results(words: List) -> pd.DataFrame:
     """Format query results into a DataFrame for display."""
@@ -24,6 +23,7 @@ def format_word_results(words: List) -> pd.DataFrame:
             'Voice': word.voice or '',
             'Relation': word.relation or '',
             'Sentence ID': word.sentence_id,
+            'Word ID': word.id,
             'Document URN': word.urn
         })
     
@@ -60,7 +60,6 @@ def create_engine_from_files(urns: List[str]):
                     all_files[urn] = xml_content
             except: 
                 st.error(f"Error opening document with urn {urn}.")  
-                #return False
         
     st.success("XML data loaded successfully!")
     st.info("Ready to execute queries.")
