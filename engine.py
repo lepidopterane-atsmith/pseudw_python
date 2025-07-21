@@ -137,6 +137,7 @@ class GreekQueryEngine:
     """Query engine for searching Greek texts using CSS-like selectors."""
     
     def __init__(self, words: List[Word]):
+        print("hewwo")
         self.words = words
         self.words_by_id = {word.id: word for word in words}
         self.words_by_sentence = {}
@@ -156,24 +157,25 @@ class GreekQueryEngine:
     def query(self, selector: str) -> List[Word]:
         """Execute a query using CSS-like selector syntax."""
         # Handle comma-separated selectors
+        print("first case")
         if ',' in selector:
             results = []
             for sub_selector in selector.split(','):
                 results.extend(self.query(sub_selector.strip()))
             return list(set(results))  # Remove duplicates
-        
+        print("second case")
         # Handle parent-child relationships (>)
         if ' > ' in selector:
             return self._handle_parent_child(selector)
-        
+        print("third case")
         # Handle adjacent words (+)
         if ' + ' in selector:
             return self._handle_adjacent(selector)
-        
+        print("fourth case")
         # Handle word order (~)
         if ' ~ ' in selector:
             return self._handle_word_order(selector)
-        
+        print("this shouldnt print uwu")
         # Handle single selector
         return self._match_single_selector(selector)
     

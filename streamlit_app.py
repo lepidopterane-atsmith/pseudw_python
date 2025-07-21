@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from typing import List
 import os
+from tqdm import tqdm
 
 from engine import create_query_engine
 
@@ -46,21 +47,33 @@ def create_query_examples():
         "Indicative verbs with accusative objects": ":verb:indicative:root > :accusative[relation=OBJ]"
     }
     
+caught_urns = ["0284-047","1799-01"]
+uncaught_urns = ["2139-001"]
+
 def create_engine_from_files(urns: List[str]):
+    print("urns in system: ", len(urns))
     this_dir = os.path.dirname(__file__)
     
     all_files = {}
     
     with st.spinner("Loading XML data..."):
+        print(urns) # when i pick this up again: does this method work with all urns running it normally thru python.
         for urn in urns:
             doc_path = os.path.join(this_dir, "data", "xml", f"{urn}.xml")
-            try:
-                with open(doc_path, 'rb') as doc:
-                    xml_content = doc.read().decode('utf-8')
-                    all_files[urn] = xml_content
-            except: 
-                st.error(f"Error opening document with urn {urn}.")  
-        
+            # data/xml/0284-047.xml seems to be crashing this . why
+            if urn not in caught_urns: # and urn not in uncaught_urns:
+                print(urn)
+                try:
+                    with open(doc_path, 'rb') as doc: # < this is the misbehaving line
+                        #print("one")
+                        xml_content = doc.read().decode('utf-8')
+                        #print("two")
+                        all_files[urn] = xml_content
+                        #print("three")
+                except: 
+                    print("caught ",urn)
+                    st.error(f"Error opening document with urn {urn}.")  # this doesnt really do exactly what we expected it to    
+
     st.success("XML data loaded successfully!")
     st.info("Ready to execute queries.")
     return create_query_engine(all_files)
@@ -141,7 +154,13 @@ def main():
                 print("attempting to execute query")
                 with st.spinner("Executing query..."):
                     query_engine = get_query_engine(st.session_state.selected_urns)
+                    print("hi")
                     results = query_engine.query(query)
+                    
+                    
+                    #for t in tqdm(range(1),desc="any%"):
+                    #    print("hello")
+
                 
                 st.session_state.current_results = results
                 st.session_state.current_query = query
