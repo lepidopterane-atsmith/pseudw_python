@@ -1,6 +1,6 @@
 import re
 import xml.etree.ElementTree as ET
-from typing import List, Dict, Any, Optional, Union
+from typing import List, Dict, Optional
 from dataclasses import dataclass
 from enum import Enum
 

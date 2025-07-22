@@ -46,7 +46,20 @@ def create_query_examples():
         "Indicative verbs with accusative objects": ":verb:indicative:root > :accusative[relation=OBJ]"
     }
     
+def create_genre_options():
+    """Create genre options for selecting texts by genre"""
+    return [
+        'Epic poetry', 'Lyric poetry', 'History', 'Tragedy', 'Biography', 'Philosophy',
+        'Rhetoric', 'Polyhistory', 'Oratory', 'Epistolography', 'Comedy',
+        'Scientific Poetry', 'Philosophic Dialogue', 'Military', 'Biology',
+        'Medicine', 'Paradoxography', 'Narrative', 'Dialogue', 'AstronomyAstrology',
+        'Geography', 'Physics', 'Language', 'Music', 'Mathematics', 'Mythography',
+        'Religious Poetry', 'Theology', 'Engineering', 'Rhetoric',
+        'Commentary'
+    ]
+    
 def create_engine_from_files(urns: List[str]):
+    """Create a query engine from a list of URNs"""
     this_dir = os.path.dirname(__file__)
     
     all_files = {}
@@ -141,6 +154,7 @@ def main():
                 print("attempting to execute query")
                 with st.spinner("Executing query..."):
                     query_engine = get_query_engine(st.session_state.selected_urns)
+                    print("query engine fetched/created")
                     results = query_engine.query(query)
                 
                 st.session_state.current_results = results
@@ -228,14 +242,26 @@ def main():
     df = pd.read_csv("matched_urns.csv")
     df["Display Label"] = df.apply(lambda row: f"{row['URN']} {row['Author']}, {row['Title']}", axis=1)
     
+    all = st.checkbox("Select all documents")
+    
+    st.write("Select by document:")
     container = st.container()
-    all = st.checkbox("Select all")
+    #REMOVE WARNING SOMEDAY HOPEFULLY
+    st.error("NOTE: queries on all documents are not currently functioning on browser version. To run queries on all documents, please run locally.")
     if all:
-        selected_labels = container.multiselect("Select document(s):", df["Display Label"].tolist(), df["Display Label"].tolist())
+        selected_docs = container.multiselect("Select document(s):", df["Display Label"].tolist(), df["Display Label"].tolist(), key='all_docs')
+        st.info("NOTE: Genre selection disabled when all documents are selected.")
     else:
-        selected_labels = container.multiselect("Select document(s):", df["Display Label"].tolist())
+        selected_docs = container.multiselect("Select document(s):", df["Display Label"].tolist(), key='not_all_docs')
+            
+    st.write("Select by genre:")
+    container_genre = st.container()
+    selected_genres = container_genre.multiselect("Select genre(s):", create_genre_options(), key='genre', disabled=all)
         
-    selected_rows = df[df["Display Label"].isin(selected_labels)]
+    #add selected documents and genres to the list
+    selected_rows = df[df["Display Label"].isin(selected_docs)]
+    selected_rows = pd.concat([selected_rows, df[df["Genre"].isin(selected_genres)]])
+        
     st.write("Current selection:")
     st.dataframe(selected_rows)
     confirmed_selection = st.button("Confirm Selection")
@@ -243,7 +269,7 @@ def main():
     urns = []
     if confirmed_selection and not selected_rows.empty:
         urns = [urn for urn in selected_rows["URN"]]
-        st.session_state.selected_urns = urns #might need to convert to tuple
+        st.session_state.selected_urns = urns 
         st.session_state.engine_loaded = True
         st.success("URNs successfully saved.")
         print("query engine created or loaded")            
