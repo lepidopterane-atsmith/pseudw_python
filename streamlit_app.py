@@ -48,7 +48,6 @@ def create_query_examples():
     }
     
 caught_urns = ["0284-047","1799-01"]
-uncaught_urns = ["2139-001"]
 
 def create_engine_from_files(urns: List[str]):
     print("urns in system: ", len(urns))
@@ -57,19 +56,15 @@ def create_engine_from_files(urns: List[str]):
     all_files = {}
     
     with st.spinner("Loading XML data..."):
-        print(urns) # when i pick this up again: does this method work with all urns running it normally thru python.
+        print(urns) 
         for urn in urns:
             doc_path = os.path.join(this_dir, "data", "xml", f"{urn}.xml")
-            # data/xml/0284-047.xml seems to be crashing this . why
-            if urn not in caught_urns: # and urn not in uncaught_urns:
+            if urn not in caught_urns:# and urn not in uncaught_urns:
                 print(urn)
                 try:
                     with open(doc_path, 'rb') as doc: # < this is the misbehaving line
-                        #print("one")
                         xml_content = doc.read().decode('utf-8')
-                        #print("two")
                         all_files[urn] = xml_content
-                        #print("three")
                 except: 
                     print("caught ",urn)
                     st.error(f"Error opening document with urn {urn}.")  # this doesnt really do exactly what we expected it to    

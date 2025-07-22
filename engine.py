@@ -97,6 +97,7 @@ class GreekTextParser:
         return features
     
     def xml_to_words(self, xml_content: str, doc_urn: str) -> List[Word]:
+        print("eyy im parsin here")
         """Convert Perseus Treebank XML to Word objects."""
         root = ET.fromstring(xml_content)
         words = []
@@ -128,7 +129,7 @@ class GreekTextParser:
                     relation=relation,
                     **features
                 )
-                
+                print(word_id, urn)
                 words.append(word)
         
         return words
@@ -328,9 +329,12 @@ class GreekQueryEngine:
         return False
 
 def create_query_engine(xml_docs: dict[str, str]) -> GreekQueryEngine:
+    print("inside this function.")
     parser = GreekTextParser()
     all_words = []
+    print("entering for loop...")
     for urn, content in xml_docs.items():
         words = parser.xml_to_words(content, urn)
         all_words.extend(words)
+    print("exiting for loop...")
     return GreekQueryEngine(all_words)
