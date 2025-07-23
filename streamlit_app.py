@@ -12,6 +12,9 @@ def format_word_results(words: List) -> pd.DataFrame:
     
     data = []
     for word in words:
+        urn_parts = word.urn.split('-')
+        maybe_url = f"https://scaife.perseus.org/reader/urn:cts:greekLit:tlg{urn_parts[0]}.tlg{urn_parts[1]}.perseus-grc2:{word.subdoc}/"
+        
         data.append({
             'Form': word.form,
             'Lemma': word.lemma,
@@ -24,7 +27,9 @@ def format_word_results(words: List) -> pd.DataFrame:
             'Relation': word.relation or '',
             'Sentence ID': word.sentence_id,
             'Word ID': word.id,
-            'Document URN': word.urn
+            'Subdoc': word.subdoc,
+            'Document URN': word.urn,
+            'Scaife URL': maybe_url
         })
     
     return pd.DataFrame(data)
@@ -74,7 +79,6 @@ def create_engine_from_files(urns: List[str]):
             except: 
                 st.error(f"Error opening document with urn {urn}.")  
         
-    st.success("XML data loaded successfully!")
     st.info("Ready to execute queries.")
     return create_query_engine(all_files)
 
@@ -93,190 +97,203 @@ def main():
     st.markdown("Search ancient Greek texts using CSS-like selectors with linguistic features")
     st.markdown("A Python/Streamlit implementation of Nick Kallen's pseudw: **https://github.com/nkallen/pseudw**")
     
-    # Sidebar for help and examples
-    with st.sidebar:
-        st.header("Query Examples")
-        examples = create_query_examples()
-        
-        selected_example = st.selectbox(
-            "Choose an example query:",
-            list(examples.keys())
-        )
-        
-        if st.button("Use Example"):
-            st.session_state.query = examples[selected_example]
-        
-        st.markdown("---")
-        st.markdown("### Query Syntax Help")
-        st.markdown("""
-        **Basic Searches:**
-        - `μῆνις` - Find lemma
-        - `:accusative` - Find accusative case
-        - `:verb` - Find verbs
-        
-        **Combined Features:**
-        - `:third:singular:verb` - Third person singular verbs
-        - `αἰτέω:first:singular:present` - Specific lemma with features
-        
-        **Attribute Selectors:**
-        - `[form=φθογγὴν]` - Specific word form
-        - `[relation=AuxC]` - Specific syntactic relation
-        
-        **Relationships:**
-        - `μῆνις > :adjective[relation=ATR]` - Adjectives modifying μῆνις
-        - `φίλος + γάρ + εἰμί` - Adjacent words
-        - `φίλος ~ εἰμί` - Word order (not necessarily adjacent)
-        
-        **Multiple Selectors:**
-        - `selector1 selector2` - Both selectors
-        """)
-    
-    # Main interface
-    col1, col2 = st.columns([3, 1])
-    
-    with col1:
-        query = st.text_input(
-            "Enter your query:",
-            value=st.session_state.get('query', ''),
-            placeholder="e.g., :accusative or μῆνις > :adjective[relation=ATR]",
-            key="query"
-        )
-    
-    with col2:
-        search_button = st.button("🔍 Search", type="primary")
-        
-    #QUERY EXECUTION
-    if search_button and query:
-        if 'selected_urns' not in st.session_state or not st.session_state.get('engine_loaded', False):
-            st.error("No data loaded. Have you selected and confirmed your document list?")
-        else:
-            try:
-                print("attempting to execute query")
-                with st.spinner("Executing query..."):
-                    query_engine = get_query_engine(st.session_state.selected_urns)
-                    print("query engine fetched/created")
-                    results = query_engine.query(query)
-                
-                st.session_state.current_results = results
-                st.session_state.current_query = query
-            except Exception as e:
-                st.error(f"Error executing query: {str(e)}")
-                st.info("Please check your query syntax and try again.")
-
-    #DISPLAY RESULTS
-    if 'current_results' in st.session_state and st.session_state.current_results:
-        results = st.session_state.current_results
-        query = st.session_state.current_query
-        total_results = len(results)
-        
-        st.success(f"Found {total_results} results for query: `{query}`")
-        if total_results > 50000:
-            st.warning(f"⚠️ Very large result set ({total_results:,} results). Consider refining your query for better performance.")
-        
-        if st.button("🗑️ Clear Results"):
-            del st.session_state.current_results
-            del st.session_state.current_query
-            st.rerun()
-        
-        col1, col2 = st.columns([1, 1])
-        with col1:
-            results_per_page = st.selectbox("Results per page:", [50, 100, 500, 1000], index=1, key="results_per_page")
-            total_pages = (total_results + results_per_page - 1) // results_per_page
-        with col2:
-            page = st.number_input(
-                f"Page (1-{total_pages}):",
-                min_value=1,
-                max_value=total_pages,
-                value=1,
-                key="current_page"
-            )
-        
-        #get slice sizes, then show results
-        start_idx = (page - 1) * results_per_page
-        end_idx = min(start_idx + results_per_page, total_results)
-        
-        st.info(f"Showing results {start_idx + 1}-{end_idx} of {total_results}")
-        df_results = format_word_results(results[start_idx:end_idx])
-        st.dataframe(df_results, use_container_width=True)
-        
-        #DATA DOWNLOAD
-        #current page and full results - WILL BE USEFUL WHEN SENTENCES ARE ADDED
-        col1, col2 = st.columns(2)
-        with col1:
-            csv_page = df_results.to_csv(index=False)
-            st.download_button(
-                label=f"📥 Download Current Page as CSV ({len(df_results)} results)",
-                data=csv_page,
-                file_name=f"greek_query_results_page_{page}_{query.replace(' ', '_')}.csv",
-                mime="text/csv",
-                key="download_page"
-            )
-        
-        with col2:
-            if total_results > 10000:
-                st.warning(f"⚠️ Full export contains {total_results} results - may be very large!")
-            
-            if st.button("Prepare Full CSV Download", key="prepare_csv"):
-                with st.spinner("Preparing full results..."):
-                    df_full = format_word_results(results)
-                    csv_full = df_full.to_csv(index=False)
-                    st.session_state.full_csv_data = csv_full
-                    st.session_state.full_csv_ready = True
-            
-            if st.session_state.get('full_csv_ready', False):
-                st.download_button(
-                    label=f"📥 Download All Results as CSV ({total_results} results)",
-                    data=st.session_state.full_csv_data,
-                    file_name=f"greek_query_results_full_{query.replace(' ', '_')}.csv",
-                    mime="text/csv",
-                    key="download_full"
-                )
-                
-    elif 'current_results' in st.session_state and not st.session_state.current_results:
-        st.warning("No results found for your last query.")
-        
-    #DATA HANDLING
     st.markdown("---")
-    st.header("Data Management")
 
-    df = pd.read_csv("matched_urns.csv")
-    df["Display Label"] = df.apply(lambda row: f"{row['URN']} {row['Author']}, {row['Title']}", axis=1)
     
-    all = st.checkbox("Select all documents")
-    
-    st.write("Select by document:")
-    container = st.container()
-    #REMOVE WARNING SOMEDAY HOPEFULLY
-    st.error("NOTE: queries on all documents are not currently functioning on browser version. To run queries on all documents, please run locally.")
-    if all:
-        selected_docs = container.multiselect("Select document(s):", df["Display Label"].tolist(), df["Display Label"].tolist(), key='all_docs')
-        st.info("NOTE: Genre selection disabled when all documents are selected.")
-    else:
-        selected_docs = container.multiselect("Select document(s):", df["Display Label"].tolist(), key='not_all_docs')
+    tab1, tab2, tab3 = st.tabs(["Data Setup", "Query Tool", "Significance Testing"])
+
+    with tab2:
+        # Sidebar for help and examples
+        with st.sidebar:
+            st.header("Query Examples")
+            examples = create_query_examples()
             
-    st.write("Select by genre:")
-    container_genre = st.container()
-    selected_genres = container_genre.multiselect("Select genre(s):", create_genre_options(), key='genre', disabled=all)
+            selected_example = st.selectbox(
+                "Choose an example query:",
+                list(examples.keys())
+            )
+            
+            if st.button("Use Example"):
+                st.session_state.query = examples[selected_example]
+            
+            st.markdown("---")
+            st.markdown("### Query Syntax Help")
+            st.markdown("""
+            **Basic Searches:**
+            - `μῆνις` - Find lemma
+            - `:accusative` - Find accusative case
+            - `:verb` - Find verbs
+            
+            **Combined Features:**
+            - `:third:singular:verb` - Third person singular verbs
+            - `αἰτέω:first:singular:present` - Specific lemma with features
+            
+            **Attribute Selectors:**
+            - `[form=φθογγὴν]` - Specific word form
+            - `[relation=AuxC]` - Specific syntactic relation
+            
+            **Relationships:**
+            - `μῆνις > :adjective[relation=ATR]` - Adjectives modifying μῆνις
+            - `φίλος + γάρ + εἰμί` - Adjacent words
+            - `φίλος ~ εἰμί` - Word order (not necessarily adjacent)
+            
+            **Multiple Selectors:**
+            - `selector1 selector2` - Both selectors
+            """)
         
-    #add selected documents and genres to the list
-    selected_rows = df[df["Display Label"].isin(selected_docs)]
-    selected_rows = pd.concat([selected_rows, df[df["Genre"].isin(selected_genres)]])
+        # Main interface
+        col1, col2 = st.columns([3, 1])
         
-    st.write("Current selection:")
-    st.dataframe(selected_rows)
-    confirmed_selection = st.button("Confirm Selection")
-    
-    urns = []
-    if confirmed_selection and not selected_rows.empty:
-        urns = [urn for urn in selected_rows["URN"]]
-        st.session_state.selected_urns = urns 
-        st.session_state.engine_loaded = True
-        st.success("URNs successfully saved.")
-        print("query engine created or loaded")            
-    if selected_rows.empty:
-        st.info("Please select one or more documents")
-        st.session_state.selected_urns =[]
-        st.session_state.engine_loaded = False
+        with col1:
+            query = st.text_input(
+                "Enter your query:",
+                value=st.session_state.get('query', ''),
+                placeholder="e.g., :accusative or μῆνις > :adjective[relation=ATR]",
+                key="query"
+            )
+        
+        with col2:
+            search_button = st.button("🔍 Search", type="primary")
+            
+        #QUERY EXECUTION
+        if search_button and query:
+            if 'selected_urns' not in st.session_state or not st.session_state.get('engine_loaded', False):
+                st.error("No data loaded. Have you selected and confirmed your document list?")
+            else:
+                try:
+                    print("attempting to execute query")
+                    with st.spinner("Executing query..."):
+                        query_engine = get_query_engine(st.session_state.selected_urns)
+                        print("query engine fetched/created")
+                        results = query_engine.query(query)
+                    
+                    st.session_state.current_results = results
+                    st.session_state.current_query = query
+                except Exception as e:
+                    st.error(f"Error executing query: {str(e)}")
+                    st.info("Please check your query syntax and try again.")
+
+        #DISPLAY RESULTS
+        if 'current_results' in st.session_state and st.session_state.current_results:
+            results = st.session_state.current_results
+            query = st.session_state.current_query
+            total_results = len(results)
+            
+            st.success(f"Found {total_results} results for query: `{query}`")
+            if total_results > 50000:
+                st.warning(f"⚠️ Very large result set ({total_results:,} results). Consider refining your query for better performance.")
+            
+            if st.button("🗑️ Clear Results"):
+                del st.session_state.current_results
+                del st.session_state.current_query
+                st.rerun()
+            
+            col1, col2 = st.columns([1, 1])
+            with col1:
+                results_per_page = st.selectbox("Results per page:", [50, 100, 500, 1000], index=1, key="results_per_page")
+                total_pages = (total_results + results_per_page - 1) // results_per_page
+            with col2:
+                page = st.number_input(
+                    f"Page (1-{total_pages}):",
+                    min_value=1,
+                    max_value=total_pages,
+                    value=1,
+                    key="current_page"
+                )
+            
+            #get slice sizes, then show results
+            start_idx = (page - 1) * results_per_page
+            end_idx = min(start_idx + results_per_page, total_results)
+            
+            st.info(f"Showing results {start_idx + 1}-{end_idx} of {total_results}")
+            df_results = format_word_results(results[start_idx:end_idx])
+            st.dataframe(df_results, use_container_width=True)
+            
+            #DATA DOWNLOAD
+            #current page and full results - WILL BE USEFUL WHEN SENTENCES ARE ADDED
+            col1, col2 = st.columns(2)
+            with col1:
+                csv_page = df_results.to_csv(index=False)
+                st.download_button(
+                    label=f"📥 Download Current Page as CSV ({len(df_results)} results)",
+                    data=csv_page,
+                    file_name=f"greek_query_results_page_{page}_{query.replace(' ', '_')}.csv",
+                    mime="text/csv",
+                    key="download_page"
+                )
+            
+            with col2:
+                if total_results > 10000:
+                    st.warning(f"⚠️ Full export contains {total_results} results - may be very large!")
+                
+                if st.button("Prepare Full CSV Download", key="prepare_csv"):
+                    with st.spinner("Preparing full results..."):
+                        df_full = format_word_results(results)
+                        csv_full = df_full.to_csv(index=False)
+                        st.session_state.full_csv_data = csv_full
+                        st.session_state.full_csv_ready = True
+                
+                if st.session_state.get('full_csv_ready', False):
+                    st.download_button(
+                        label=f"📥 Download All Results as CSV ({total_results} results)",
+                        data=st.session_state.full_csv_data,
+                        file_name=f"greek_query_results_full_{query.replace(' ', '_')}.csv",
+                        mime="text/csv",
+                        key="download_full"
+                    )
+                    
+        elif 'current_results' in st.session_state and not st.session_state.current_results:
+            st.warning("No results found for your last query.")
+            
+    with tab1:        
+        #DATA HANDLING
+        st.header("Data Management")
+
+        df = pd.read_csv("matched_urns.csv")
+        df["Display Label"] = df.apply(lambda row: f"{row['URN']} {row['Author']}, {row['Title']}", axis=1)
+        
+        all = st.checkbox("Select all documents")
+        st.error("NOTE: queries on all documents are not currently functioning on browser version. To run queries on all documents, please run locally.")
+
+        
+        doc_column, genre_column = st.columns([1, 1])
+
+        with doc_column:
+            st.subheader("Select by document:")
+            container = st.container()
+            #REMOVE WARNING SOMEDAY HOPEFULLY
+            if all:
+                selected_docs = container.multiselect("Select document(s):", df["Display Label"].tolist(), df["Display Label"].tolist(), key='all_docs', placeholder="Select document(s)", label_visibility="hidden")
+                st.info("NOTE: Genre selection disabled when all documents are selected.")
+            else:
+                selected_docs = container.multiselect("Select document(s):", df["Display Label"].tolist(), key='not_all_docs', placeholder="Select document(s)", label_visibility="hidden")
+        with genre_column:
+            st.subheader("Select by genre:")
+            container_genre = st.container()
+            selected_genres = container_genre.multiselect("Select genre(s):", create_genre_options(), key='genre', disabled=all, placeholder="Select genre(s)", label_visibility="hidden")
+            
+        #add selected documents and genres to the list
+        selected_rows = df[df["Display Label"].isin(selected_docs)]
+        selected_rows = pd.concat([selected_rows, df[df["Genre"].isin(selected_genres)]])
+            
+        st.write("Current selection:")
+        st.dataframe(selected_rows)
+        confirmed_selection = st.button("Confirm Selection")
+        
+        urns = []
+        if confirmed_selection and not selected_rows.empty:
+            urns = [urn for urn in selected_rows["URN"]]
+            st.session_state.selected_urns = urns 
+            st.session_state.engine_loaded = True
+            st.success("URNs successfully saved.")
+            print("query engine created or loaded")            
+        if selected_rows.empty:
+            st.info("Please select one or more documents")
+            st.session_state.selected_urns =[]
+            st.session_state.engine_loaded = False
+            
+    with tab3:
+        st.info("Development in progress.")
 
 if __name__ == "__main__":
     main()

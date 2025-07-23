@@ -31,6 +31,7 @@ class Word:
     sentence_id: int
     urn: str
     relation: str
+    subdoc: Optional[str] = None #TODO: figure out how to get context for docs without subdocs
     part_of_speech: Optional[str] = None
     person: Optional[str] = None
     number: Optional[str] = None
@@ -103,6 +104,7 @@ class GreekTextParser:
         
         for sentence in root.findall('.//sentence'):
             sentence_id = int(sentence.get('id'))
+            subdoc = sentence.get('subdoc')
             
             for word_node in sentence.findall('.//word'):
                 # Extract basic attributes
@@ -126,6 +128,7 @@ class GreekTextParser:
                     sentence_id=sentence_id,
                     urn=urn,
                     relation=relation,
+                    subdoc=subdoc,
                     **features
                 )
                 
