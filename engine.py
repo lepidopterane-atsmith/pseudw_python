@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 from typing import List, Dict, Any, Optional, Union
 from dataclasses import dataclass
 from enum import Enum
+from tqdm import tqdm
 
 class PartOfSpeech(Enum):
     NOUN = "noun"
@@ -97,7 +98,7 @@ class GreekTextParser:
         return features
     
     def xml_to_words(self, xml_content: str, doc_urn: str) -> List[Word]:
-        print("eyy im parsin here")
+        #print("eyy im parsin here")
         """Convert Perseus Treebank XML to Word objects."""
         root = ET.fromstring(xml_content)
         words = []
@@ -129,7 +130,7 @@ class GreekTextParser:
                     relation=relation,
                     **features
                 )
-                print(word_id, urn)
+                #print(word_id, urn)
                 words.append(word)
         
         return words
@@ -158,25 +159,20 @@ class GreekQueryEngine:
     def query(self, selector: str) -> List[Word]:
         """Execute a query using CSS-like selector syntax."""
         # Handle comma-separated selectors
-        print("first case")
         if ',' in selector:
             results = []
             for sub_selector in selector.split(','):
                 results.extend(self.query(sub_selector.strip()))
             return list(set(results))  # Remove duplicates
-        print("second case")
         # Handle parent-child relationships (>)
         if ' > ' in selector:
             return self._handle_parent_child(selector)
-        print("third case")
         # Handle adjacent words (+)
         if ' + ' in selector:
             return self._handle_adjacent(selector)
-        print("fourth case")
         # Handle word order (~)
         if ' ~ ' in selector:
             return self._handle_word_order(selector)
-        print("this shouldnt print uwu")
         # Handle single selector
         return self._match_single_selector(selector)
     
@@ -329,11 +325,11 @@ class GreekQueryEngine:
         return False
 
 def create_query_engine(xml_docs: dict[str, str]) -> GreekQueryEngine:
-    print("inside this function.")
+    #print("inside this function.")
     parser = GreekTextParser()
     all_words = []
-    print("entering for loop...")
-    for urn, content in xml_docs.items():
+    #print("entering for loop...")
+    for urn, content in tqdm(xml_docs.items()):
         words = parser.xml_to_words(content, urn)
         all_words.extend(words)
     print("exiting for loop...")
