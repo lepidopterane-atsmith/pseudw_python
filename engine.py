@@ -5,6 +5,8 @@ from dataclasses import dataclass
 from enum import Enum
 from tqdm import tqdm
 
+snt_count = 0
+
 class PartOfSpeech(Enum):
     NOUN = "noun"
     VERB = "verb"
@@ -150,6 +152,8 @@ class GreekQueryEngine:
                 self.words_by_sentence[word.sentence_id] = []
             self.words_by_sentence[word.sentence_id].append(word)
         
+        print(len(self.words_by_sentence))
+
         # Build parent-child relationships
         for word in words:
             if word.parent_id in self.words_by_id:
@@ -332,5 +336,4 @@ def create_query_engine(xml_docs: dict[str, str]) -> GreekQueryEngine:
     for urn, content in tqdm(xml_docs.items()):
         words = parser.xml_to_words(content, urn)
         all_words.extend(words)
-    print("exiting for loop...")
     return GreekQueryEngine(all_words)

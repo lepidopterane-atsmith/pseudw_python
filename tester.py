@@ -1,6 +1,7 @@
 import pandas as pd
 from typing import List
 import os
+import time
 from tqdm import tqdm
 
 from engine import create_query_engine
@@ -34,4 +35,14 @@ def create_engine_from_files(urns: List[str]):
     print("hi there")
     return create_query_engine(all_files)
 
-query_engine = create_engine_from_files(all_urns)
+endpoints = [92, 184, 277, 369, 461, 553, 645, 737, 830, 922]
+
+for e in range(1): #endpoints:
+    query_engine = create_engine_from_files(all_urns) #[:e])
+    start = time.perf_counter()
+    for i in range(1): # 5
+        query_engine.query(":accusative")
+    finish = time.perf_counter()
+    interval = (finish - start) # / 5
+    print("average over "," number "," records: ", interval) # next: re-implement measurement on this i guess
+
