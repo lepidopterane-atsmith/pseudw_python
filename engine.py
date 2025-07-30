@@ -332,8 +332,8 @@ def create_query_engine(xml_docs: dict[str, str]) -> GreekQueryEngine:
     #print("inside this function.")
     parser = GreekTextParser()
     all_words = []
-    #print("entering for loop...")
-    for urn, content in tqdm(xml_docs.items()):
+    print("loading ", len(xml_docs.items()), " items...")
+    for urn, content in xml_docs.items():
         words = parser.xml_to_words(content, urn)
         all_words.extend(words)
     return GreekQueryEngine(all_words)

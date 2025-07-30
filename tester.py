@@ -36,13 +36,15 @@ def create_engine_from_files(urns: List[str]):
     return create_query_engine(all_files)
 
 endpoints = [92, 184, 277, 369, 461, 553, 645, 737, 830, 922]
+queries = ["εἰ[relation=AuxC]", ":future:infinitive:verb > [form=ἐβούλοντο]", ":aorist:infinitive:verb > [form=εἰκός]", "περί > :dative", ":genitive[relation=SBJ]", ":infinitive:verb[relation=SBJ]", ":verb:indicative > :infinitive", ":root", ":verb", ":accusative", "[relation=SBJ]"]
 
-for e in range(1): #endpoints:
-    query_engine = create_engine_from_files(all_urns) #[:e])
-    start = time.perf_counter()
-    for i in range(1): # 5
-        query_engine.query(":accusative")
-    finish = time.perf_counter()
-    interval = (finish - start) # / 5
-    print("average over "," number "," records: ", interval) # next: re-implement measurement on this i guess
+for e in endpoints:
+    query_engine = create_engine_from_files(all_urns[:e])
+    for q in queries:
+        start = time.perf_counter()
+        for i in range(5): # 5
+            query_engine.query(q)
+        finish = time.perf_counter()
+        interval = (finish - start) / 5
+        print("average over ",e," number "," records for ", q, interval) # re-implement measurement on this i guess
 

@@ -1,0 +1,71 @@
+urns in system:  92
+hi there
+loading  92  items...
+hewwo
+6055
+average over  92  number   records for  εἰ[relation=AuxC] 4.0590231492
+average over  92  number   records for  :future:infinitive:verb > [form=ἐβούλοντο] 11.6742449506
+average over  92  number   records for  :aorist:infinitive:verb > [form=εἰκός] 11.904259975799999
+average over  92  number   records for  περί > :dative 8.260312650600003
+average over  92  number   records for  :genitive[relation=SBJ] 4.801064840599997
+average over  92  number   records for  :infinitive:verb[relation=SBJ] 4.832877779
+average over  92  number   records for  :verb:indicative > :infinitive 15.119933090400002
+average over  92  number   records for  :root 2.166081730999997
+average over  92  number   records for  :verb 10.854376129599995
+average over  92  number   records for  :accusative 11.587019519199998
+average over  92  number   records for  [relation=SBJ] 4.568907271399996
+urns in system:  184
+hi there
+loading  184  items...
+hewwo
+20658
+average over  184  number   records for  εἰ[relation=AuxC] 7.53977561239999
+average over  184  number   records for  :future:infinitive:verb > [form=ἐβούλοντο] 21.611950307999997
+average over  184  number   records for  :aorist:infinitive:verb > [form=εἰκός] 22.075505458199995
+average over  184  number   records for  περί > :dative 15.334382989200003
+average over  184  number   records for  :genitive[relation=SBJ] 8.980910922399994
+average over  184  number   records for  :infinitive:verb[relation=SBJ] 17.94795619880001
+average over  184  number   records for  :verb:indicative > :infinitive 27.505427394400023
+average over  184  number   records for  :root 4.0835623047999885
+average over  184  number   records for  :verb 19.95443639360001
+average over  184  number   records for  :accusative 21.567287670999985
+average over  184  number   records for  [relation=SBJ] 8.487281199799963
+urns in system:  277
+hi there
+loading  277  items...
+hewwo
+20658
+average over  277  number   records for  εἰ[relation=AuxC] 11.278367522400004
+average over  277  number   records for  :future:infinitive:verb > [form=ἐβούλοντο] 31.588279219800008
+average over  277  number   records for  :aorist:infinitive:verb > [form=εἰκός] 32.60581770700001
+average over  277  number   records for  περί > :dative 30.534141556400026
+average over  277  number   records for  :genitive[relation=SBJ] 13.287214982199975
+average over  277  number   records for  :infinitive:verb[relation=SBJ] 13.37951740159997
+average over  277  number   records for  :verb:indicative > :infinitive 40.883054291200004
+average over  277  number   records for  :root 6.10180303140005
+average over  277  number   records for  :verb 29.825160697400044
+average over  277  number   records for  :accusative 31.855371573600042
+average over  277  number   records for  [relation=SBJ] 12.629285826799968
+urns in system:  369
+hi there
+loading  369  items...
+hewwo
+20658
+average over  369  number   records for  εἰ[relation=AuxC] 20.185711671399986
+average over  369  number   records for  :future:infinitive:verb > [form=ἐβούλοντο] 52.902800562999985
+average over  369  number   records for  :aorist:infinitive:verb > [form=εἰκός] 53.92540852760003
+average over  369  number   records for  περί > :dative 37.831057104799946
+average over  369  number   records for  :genitive[relation=SBJ] 21.912693464400036
+average over  369  number   records for  :infinitive:verb[relation=SBJ] 30.085395519800024
+average over  369  number   records for  :verb:indicative > :infinitive 64.31263632999989
+average over  369  number   records for  :root 9.657707002000098
+average over  369  number   records for  :verb 47.895094688000064
+average over  369  number   records for  :accusative 51.024231070000134
+average over  369  number   records for  [relation=SBJ] 36.38393080920014
+urns in system:  461
+hi there
+loading  461  items...
+hewwo
+38626
+average over  461  number   records for  εἰ[relation=AuxC] 53.22610954440006
+average over  461  number   records for  :future:infinitive:verb > [form=ἐβούλοντο] 141.9251810063999
