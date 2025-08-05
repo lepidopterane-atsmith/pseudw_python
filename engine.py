@@ -163,11 +163,14 @@ class GreekQueryEngine:
     def query(self, selector: str) -> List[Word]:
         """Execute a query using CSS-like selector syntax."""
         # Handle comma-separated selectors
+        print(selector)
         if ',' in selector:
             results = []
             for sub_selector in selector.split(','):
-                results.extend(self.query(sub_selector.strip()))
-            return list(set(results))  # Remove duplicates
+                instance = [(str(i.urn)+str(i.id), i) for i in self.query(sub_selector.strip())]
+                print("instance contains ",len(instance)," members")
+                results.extend([i for i in instance if i[0] not in [r[0] for r in results]])
+            return [r[1] for r in results]  # Remove duplicates
         # Handle parent-child relationships (>)
         if ' > ' in selector:
             return self._handle_parent_child(selector)

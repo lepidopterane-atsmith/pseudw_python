@@ -151,6 +151,7 @@ def main():
             try:
                 print("attempting to execute query")
                 with st.spinner("Executing query..."):
+                    print("Query: ", query)
                     query_engine = get_query_engine(st.session_state.selected_urns)
                     print("hi")
                     results = query_engine.query(query)
