@@ -164,6 +164,30 @@ class GreekQueryEngine:
         """Execute a query using CSS-like selector syntax."""
         # Handle comma-separated selectors
         print(selector)
+        
+        if '&' in selector:
+            # how to use &
+            # lets say you want to just look for sentences that contain THING 1 and THING 2. 
+            # THING 1 & THING 2 give you results but just for every sentence with THING 1 and THING 2.
+            # multiple & support will only happen if i really desperately need it but lets hope not 
+            results = []
+            for sub_selector in selector.split('&'):
+                instance = [[str(i.urn)+" "+str(i.sentence_id), i] for i in self.query(sub_selector.strip())]
+                results.append(instance)
+
+            if len(results[0]) <= len(results[1]):
+                shorter_results = results[0]
+                longer_results = results[1]
+            else:
+                shorter_results = results[1]
+                longer_results = results[0]
+
+            longer_results_tags = [thing[0] for thing in longer_results]
+            overlap = [s[0] for s in shorter_results if s[0] in longer_results_tags]
+            final_results = [s[1] for s in shorter_results if s[0] in overlap]
+            final_results.extend([s[1] for s in longer_results if s[0] in overlap])
+
+            return final_results
         if ',' in selector:
             results = []
             for sub_selector in selector.split(','):
