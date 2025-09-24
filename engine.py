@@ -233,6 +233,11 @@ class GreekQueryEngine:
                 return False
             selector = selector.replace(':root', '')
         
+        # do not search alone! search with something more descriptive that points to it!
+        # :neighbor + γάρ is a good way to pull up postpositives, for instance
+        if ':neighbor' in selector:
+            selector = selector.replace(':neighbor', '')
+
         # Handle :before() and :after() pseudo-selectors
         before_match = re.search(r':before\(([^)]+)\)', selector)
         if before_match:
