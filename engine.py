@@ -139,7 +139,8 @@ class GreekTextParser:
 
 class GreekQueryEngine:
     """Query engine for searching Greek texts using CSS-like selectors."""
-    
+    return_parent = False
+
     def __init__(self, words: List[Word]):
         print("hewwo")
         self.words = words
@@ -164,7 +165,14 @@ class GreekQueryEngine:
         """Execute a query using CSS-like selector syntax."""
         # Handle comma-separated selectors
         print(selector)
-        
+
+        # put this at the start of your query! could I make this a switch? yeah just didn't feel like it
+        if 'returnParent' in selector:
+            self.return_parent = True
+            selector.replace('returnParent', '')
+        else:
+            self.return_parent = False
+
         if '&' in selector:
             # how to use &
             # lets say you want to just look for sentences that contain THING 1 and THING 2. 
@@ -236,7 +244,8 @@ class GreekQueryEngine:
         # do not search alone! search with something more descriptive that points to it!
         # :neighbor + γάρ is a good way to pull up postpositives, for instance
         if ':neighbor' in selector:
-            selector = selector.replace(':neighbor', '')
+            return True
+            #selector = selector.replace(':neighbor', '')
 
         # Handle :before() and :after() pseudo-selectors
         before_match = re.search(r':before\(([^)]+)\)', selector)
@@ -289,12 +298,17 @@ class GreekQueryEngine:
         
         parent_selector, child_selector = parts
         parent_words = self._match_single_selector(parent_selector.strip())
+        #print(parent_selector, child_selector)
         
         results = []
         for parent in parent_words:
+            parent_value = 0
             for child in parent.children:
                 if self._word_matches_selector(child, child_selector.strip()):
                     results.append(child)
+                    if parent_value == 0 and self.return_parent == True:
+                        results.append(parent)
+                        parent_value = 1
         
         return results
     
