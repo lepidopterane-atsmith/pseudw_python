@@ -1,0 +1,91 @@
+urns in system:  92
+hi there
+loading  92  items...
+hewwo
+6055
+average over  92  number   records for  εἰ[relation=AuxC] 3.8440108736
+average over  92  number   records for  :future:infinitive:verb > [form=ἐβούλοντο] 10.972779035600002
+average over  92  number   records for  :aorist:infinitive:verb > [form=εἰκός] 11.181352044000002
+average over  92  number   records for  περί > :dative 8.3409473956
+average over  92  number   records for  :genitive[relation=SBJ] 4.906382893199998
+average over  92  number   records for  :infinitive:verb[relation=SBJ] 4.926584008200001
+average over  92  number   records for  :article + :adjective + :noun 14.2405852412
+average over  92  number   records for  :verb:indicative > :infinitive 15.0629989464
+average over  92  number   records for  :root 2.1892333950000076
+average over  92  number   records for  :verb 10.439293565800005
+average over  92  number   records for  :accusative 10.801616406999994
+average over  92  number   records for  [relation=SBJ] 4.216889255000012
+urns in system:  184
+hi there
+loading  184  items...
+hewwo
+20658
+average over  184  number   records for  εἰ[relation=AuxC] 7.170086527599994
+average over  184  number   records for  :future:infinitive:verb > [form=ἐβούλοντο] 19.88886262079999
+average over  184  number   records for  :aorist:infinitive:verb > [form=εἰκός] 20.392632824400003
+average over  184  number   records for  περί > :dative 14.430178281999986
+average over  184  number   records for  :genitive[relation=SBJ] 8.2904319612
+average over  184  number   records for  :infinitive:verb[relation=SBJ] 8.399585955400005
+average over  184  number   records for  :article + :adjective + :noun 44.862917394800014
+average over  184  number   records for  :verb:indicative > :infinitive 52.156768750399976
+average over  184  number   records for  :root 10.883942701600006
+average over  184  number   records for  :verb 33.88902936779999
+average over  184  number   records for  :accusative 34.70177654019998
+average over  184  number   records for  [relation=SBJ] 15.45407398279998
+urns in system:  277
+hi there
+loading  277  items...
+hewwo
+20658
+average over  277  number   records for  εἰ[relation=AuxC] 18.302285107000024
+average over  277  number   records for  :future:infinitive:verb > [form=ἐβούλοντο] 59.282689043599966
+average over  277  number   records for  :aorist:infinitive:verb > [form=εἰκός] 53.48804307719996
+average over  277  number   records for  περί > :dative 37.088931410400015
+average over  277  number   records for  :genitive[relation=SBJ] 12.6479058882
+average over  277  number   records for  :infinitive:verb[relation=SBJ] 12.735691786400036
+average over  277  number   records for  :article + :adjective + :noun 36.65725638180005
+average over  277  number   records for  :verb:indicative > :infinitive 39.76645606239994
+average over  277  number   records for  :root 5.980358778199968
+average over  277  number   records for  :verb 28.561317394800007
+average over  277  number   records for  :accusative 37.00129738519994
+average over  277  number   records for  [relation=SBJ] 22.27707122099995
+urns in system:  369
+hi there
+loading  369  items...
+hewwo
+20658
+average over  369  number   records for  εἰ[relation=AuxC] 32.33797533260007
+average over  369  number   records for  :future:infinitive:verb > [form=ἐβούλοντο] 97.60758262559997
+average over  369  number   records for  :aorist:infinitive:verb > [form=εἰκός] 102.33540890080006
+average over  369  number   records for  περί > :dative 40.68119152019993
+average over  369  number   records for  :genitive[relation=SBJ] 21.191611256199973
+average over  369  number   records for  :infinitive:verb[relation=SBJ] 21.486607247000062
+average over  369  number   records for  :article + :adjective + :noun 60.252516419599885
+average over  369  number   records for  :verb:indicative > :infinitive 84.83484746899998
+average over  369  number   records for  :root 17.45056848199987
+average over  369  number   records for  :verb 72.30289503839998
+average over  369  number   records for  :accusative 50.84919667300004
+average over  369  number   records for  [relation=SBJ] 20.045899609199875
+urns in system:  461
+hi there
+loading  461  items...
+hewwo
+38626
+average over  461  number   records for  εἰ[relation=AuxC] 29.207646564599997
+average over  461  number   records for  :future:infinitive:verb > [form=ἐβούλοντο] 136.5693566776001
+average over  461  number   records for  :aorist:infinitive:verb > [form=εἰκός] 149.65162150399993
+average over  461  number   records for  περί > :dative 113.04847953520004
+average over  461  number   records for  :genitive[relation=SBJ] 63.547029303800116
+average over  461  number   records for  :infinitive:verb[relation=SBJ] 58.935663801599766
+average over  461  number   records for  :article + :adjective + :noun 180.9764398288
+average over  461  number   records for  :verb:indicative > :infinitive 186.37531475360012
+average over  461  number   records for  :root 31.741507321999997
+average over  461  number   records for  :verb 135.72446346319995
+average over  461  number   records for  :accusative 149.28113205779994
+average over  461  number   records for  [relation=SBJ] 53.62836892700001
+urns in system:  553
+hi there
+loading  553  items...
+hewwo
+38626
+average over  553  number   records for  εἰ[relation=AuxC] 32.48648838720004
