@@ -70,7 +70,7 @@ class GreekTextParser:
                 'i': 'indicative', 's': 'subjunctive', 'o': 'optative', 'n': 'infinitive',
                 'm': 'imperative', 'd': 'gerund', 'g': 'gerundive'
             },
-            'voice': {'a': 'active', 'p': 'passive', 'm': 'middle', 'e': 'middle-passive'},
+            'voice': {'a': 'active', 'p': 'passive', 'm': 'middle', 'e': 'mediopassive'},
             'gender': {'m': 'masculine', 'f': 'feminine', 'n': 'neuter'},
             'case': {
                 'n': 'nominative', 'g': 'genitive', 'd': 'dative', 'a': 'accusative',
@@ -264,6 +264,7 @@ class GreekQueryEngine:
         
         # Handle linguistic pseudo-selectors
         pseudo_selectors = re.findall(r':(\w+)', selector)
+        print("pseudo-selectors: ", selector, pseudo_selectors)
         for pseudo in pseudo_selectors:
             if not self._matches_linguistic_feature(word, pseudo):
                 return False
@@ -284,6 +285,7 @@ class GreekQueryEngine:
             'voice', 'gender', 'case', 'degree'
         ]
         
+        #print("feature: ", feature)
         for attr in attributes:
             if hasattr(word, attr) and getattr(word, attr) == feature:
                 return True
