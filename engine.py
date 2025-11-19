@@ -166,13 +166,6 @@ class GreekQueryEngine:
         # Handle comma-separated selectors
         print(selector)
 
-        # put this at the start of your query! could I make this a switch? yeah just didn't feel like it
-        if 'returnParent' in selector:
-            self.return_parent = True
-            selector.replace('returnParent', '')
-        else:
-            self.return_parent = False
-
         if '&' in selector:
             # how to use &
             # lets say you want to just look for sentences that contain THING 1 and THING 2. 
@@ -182,6 +175,7 @@ class GreekQueryEngine:
             for sub_selector in selector.split('&'):
                 instance = [[str(i.urn)+" "+str(i.sentence_id), i] for i in self.query(sub_selector.strip())]
                 results.append(instance)
+            #print("results list lengths", len(results[0]), len(results[1]))
 
             if len(results[0]) <= len(results[1]):
                 shorter_results = results[0]
@@ -191,9 +185,24 @@ class GreekQueryEngine:
                 longer_results = results[0]
 
             longer_results_tags = [thing[0] for thing in longer_results]
+            
             overlap = [s[0] for s in shorter_results if s[0] in longer_results_tags]
-            final_results = [s[1] for s in shorter_results if s[0] in overlap]
-            final_results.extend([s[1] for s in longer_results if s[0] in overlap])
+
+            unique_overlap = []
+
+            ### THIS IS REALLY SPECIFIC - CHANGE BEFORE RUNNING WITH NON-SHELM02
+            for o in overlap:
+                short_ids = {s[1].id for s in shorter_results if s[0] == o}
+                long_ids = {s[1].id for s in longer_results if s[0] == o}
+
+                # if each set has a member not in the other, ADD
+                if len(short_ids.difference(long_ids)) > 0 and len(long_ids.difference(short_ids)) > 0:
+                    unique_overlap.append(o)
+                # get all items 
+                # if each item has its own id, put into unique_overlap
+
+            final_results = [s[1] for s in shorter_results if s[0] in unique_overlap]
+            final_results.extend([s[1] for s in longer_results if s[0] in unique_overlap])
 
             return final_results
         if ',' in selector:
@@ -203,6 +212,14 @@ class GreekQueryEngine:
                 print("instance contains ",len(instance)," members")
                 results.extend([i for i in instance if i[0] not in [r[0] for r in results]])
             return [r[1] for r in results]  # Remove duplicates
+
+        # put this at the start of your query! could I make this a switch? yeah just didn't feel like it
+        if 'returnParent' in selector:
+            self.return_parent = True
+            selector = selector.replace('returnParent', '')
+        else:
+            self.return_parent = False
+
         # Handle parent-child relationships (>)
         if ' > ' in selector:
             return self._handle_parent_child(selector)
@@ -264,7 +281,7 @@ class GreekQueryEngine:
         
         # Handle linguistic pseudo-selectors
         pseudo_selectors = re.findall(r':(\w+)', selector)
-        print("pseudo-selectors: ", selector, pseudo_selectors)
+        #print("pseudo-selectors: ", selector, pseudo_selectors)
         for pseudo in pseudo_selectors:
             if not self._matches_linguistic_feature(word, pseudo):
                 return False
@@ -295,6 +312,7 @@ class GreekQueryEngine:
     def _handle_parent_child(self, selector: str) -> List[Word]:
         """Handle parent > child relationships."""
         parts = selector.split(' > ')
+        print(parts)
         if len(parts) != 2:
             return []
         
