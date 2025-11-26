@@ -186,18 +186,24 @@ class GreekQueryEngine:
 
             longer_results_tags = [thing[0] for thing in longer_results]
             
-            overlap = [s[0] for s in shorter_results if s[0] in longer_results_tags]
+            overlap = {s[0] for s in shorter_results if s[0] in longer_results_tags}
 
             unique_overlap = []
+            first = True
 
-            ### THIS IS REALLY SPECIFIC - CHANGE BEFORE RUNNING WITH NON-SHELM02
+            ### THIS IS REALLY SPECIFIC - CHANGE BEFORE RUNNING WITH NON-SMITH05
             for o in overlap:
                 short_ids = {s[1].id for s in shorter_results if s[0] == o}
                 long_ids = {s[1].id for s in longer_results if s[0] == o}
 
+                print(short_ids, "meow \n meow",long_ids, short_ids & long_ids)
                 # if each set has a member not in the other, ADD
-                if len(short_ids.difference(long_ids)) > 0 and len(long_ids.difference(short_ids)) > 0:
+                if len(short_ids & long_ids) == 1:
+                    if first:
+                        print("first!", short_ids, long_ids)
+                        first = False
                     unique_overlap.append(o)
+                
                 # get all items 
                 # if each item has its own id, put into unique_overlap
 
